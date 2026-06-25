@@ -1,0 +1,103 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    background-color: rgb(232, 236, 246);
+    display: flex;
+}
+nav{
+    height: 97vh;
+    width: 18vw;
+    border: 1px solid rgb(202, 202, 202);
+    background-color: white;
+}
+header{
+    padding: 20px;
+}
+header h3{
+    margin: 0;
+    color: rgb(99, 102, 241);
+}
+header p{
+    font-size: small;
+    color: gray;
+}
+.section-box a {
+    margin: 0;
+    padding-left: 20px;
+    color: gray;
+    text-decoration: none;
+}
+.active{
+    background-color: rgb(232, 236, 246);
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    border-left: 5px solid rgb(99, 102, 241);
+}
+.section-box{
+    display: flex;
+    padding: 20px 20px 20px 30px;
+    transition: 0.3s;
+}
+.section-box:hover{
+    cursor: pointer;
+    background-color: rgb(232, 236, 246);
+    color: black;
+}
+.section-box:hover a,.icon{
+    color: black;
+}
+/* =======================================
+            section : Home 
+======================================= */
+.Home{
+    background-color: rgb(232, 236, 246);
+    width: 82vw;
+    height: 100vh;
+}
+.Home nav{
+    background-color: white;
+    height: fit-content;
+    display: flex;
+    
+    justify-content: space-between;
+    padding: 10px;
+    width: 100%;
+}
+.Home nav h3{
+    margin: 0;
+}
+.body{
+    width: 78vw;
+    margin-left: 4vh;
+}
+.body-head{
+    background-color: white;
+    padding: 5px 40px 5px 40px;
+    border-radius: 10px;
+    margin: 20px 0px 20px 0px;
+}
+.body-head h2,h1{
+    margin: 0px 0px 20px 0px;
+}
+.body-head h2 i{
+    background-color: rgb(99, 102, 241);
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+}
+.body-head h2{
+    padding-left: 10px;
+}
+.body-head p{
+    color: gray;
+    padding-left: 10px;
+}
+.name{
+    background-color: white;
+    padding: 20px 0px 20px 0px;
+}
