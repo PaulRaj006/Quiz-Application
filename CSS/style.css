@@ -9,11 +9,15 @@ body{
     background-color: rgb(232, 236, 246);
     display: flex;
 }
-nav{
-    height: 97vh;
+body > nav{
+    height: 100vh;
     width: 18vw;
     border: 1px solid rgb(202, 202, 202);
     background-color: white;
+
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 header{
     padding: 20px;
@@ -55,49 +59,170 @@ header p{
             section : Home 
 ======================================= */
 .Home{
+    margin-left: 18vw;
     background-color: rgb(232, 236, 246);
     width: 82vw;
     height: 100vh;
 }
 .Home nav{
+    position: sticky;
+    top: 0;
+    z-index: 100;
     background-color: white;
-    height: fit-content;
+    height: 7vh;
     display: flex;
-    
+    border-bottom: 2px solid rgb(202, 202, 202);
     justify-content: space-between;
     padding: 10px;
     width: 100%;
 }
-.Home nav h3{
+.Home nav h4{
     margin: 0;
+    padding-left: 10px;
 }
+
+/* =======================================
+            section : Home => Body(div)
+======================================= */
 .body{
     width: 78vw;
-    margin-left: 4vh;
+    margin-left: 3vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .body-head{
     background-color: white;
     padding: 5px 40px 5px 40px;
     border-radius: 10px;
     margin: 20px 0px 20px 0px;
+    width: 75vw;
 }
-.body-head h2,h1{
-    margin: 0px 0px 20px 0px;
+.body-head h2{
+    margin: 0px 0px 10px 0px;
 }
 .body-head h2 i{
     background-color: rgb(99, 102, 241);
-    padding: 10px;
+    padding: 10px 15px 10px 15px;
     color: white;
     border-radius: 10px;
+    margin-top: 15px;
+    font-size: medium;
 }
 .body-head h2{
     padding-left: 10px;
 }
 .body-head p{
     color: gray;
-    padding-left: 10px;
+    padding-left: 20px;
+    font-size: small;
 }
-.name{
+
+.body-head label{
+    color: rgb(109, 109, 109);
+    font-weight: bold;
+    font-size: small;
+}
+.body-head input{
+    width: 50%;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid gray;
+    margin: 4px 0px 10px 0px;
+    background-color: rgb(243, 246, 255);
+}
+.body-head input:focus{
+    outline: none;
     background-color: white;
-    padding: 20px 0px 20px 0px;
+}
+
+/* =======================================
+            section : Home => Body(Choose category)
+======================================= */
+.body h3{
+    font-size: medium;
+    width: 95%;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.container{
+    width: 70vw;
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    justify-content: center;
+    gap: 20px;
+}
+.box{
+    height: 17vh;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    border: 1px solid lightgray;
+}
+
+.box .emoje{
+    font-size: x-large;
+    margin: 0;
+}
+.box p{
+    margin-bottom: 0;
+    font-weight: bold;
+}
+.box small{
+    color: gray;
+}
+.box:hover{
+    transform: translateY(-5px);
+    cursor: pointer;
+    box-shadow: 0px 0px 15px rgb(0,0,0,0.3);
+}
+
+/* =======================================
+            section : Home => Body(Difficulty buttons)
+======================================= */
+#h3{
+    margin-top: 10px;
+}
+#difBtn{
+    width: 80%;
+    margin-bottom: 5px;
+    display: flex;
+    gap: 10px;
+}
+#easyBtn,#medBtn,#hardBtn{
+    padding: 7px 18px 7px 18px;
+    color: rgb(77, 77, 77);
+    border-radius: 20px;
+    border: 2px solid rgb(200, 200, 200);
+    font-weight: 700;
+    background-color: white;
+}
+#easyBtn:hover,
+#medBtn:hover,
+#hardBtn:hover{
+    cursor: pointer;
+    border: 2px solid rgb(111, 113, 249);
+    color: rgb(99, 102, 241);
+    transition: all 0.3s ease;
+}
+#stBtn{
+    width: 80%;
+    padding: 12px 18px 12px 18px;
+    margin: 5px 0px 40px 0px;
+    font-weight: bold;
+    border-radius: 15px;
+    background-color: rgb(99, 102, 241);
+    color: white;
+    transition: all 0.3s ease;
+    border: none;
+}
+#stBtn i{
+    padding: 0px 10px 0px 10px;
+
+}
+#stBtn:hover{
+    background-color: rgb(78, 80, 190);
+    cursor: pointer;
+    transform: translateY(-2px);
 }

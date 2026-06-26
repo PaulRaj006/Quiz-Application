@@ -62,12 +62,11 @@
                 </div>
                 <a href="">Contact</a>
             </div>     
-
         </div>
     </nav>
     <section class="Home">
         <nav>
-            <h3>Home</h3>
+            <h4>Home</h4>
             <button>Reaset Data</button>
         </nav>
         <div class="body">
@@ -76,13 +75,57 @@
                     <i class="fa-solid fa-lightbulb"></i>
                     QuizMaster
                 </h2>
-                <h1>Test What <br>You Know</h1>
+                <h3>Test What <br>You Know</h3>
                 <p>Choose a category, pick your difficulty, and challenge yourself with 10 questions and a live timer.</p>
+                
+                <label for="">YOUR NAME</label> <br>
+                <input type="text" placeholder="Enter your name...">
             </div>
-            <div class="name">
-                <label for="">Your Name</label> <br>
-                <input type="text">
+
+            <h3>📚 Choose Category</h3>
+            <div class="container">
+                <div class="box">
+                    <p class="emoje">🌍</p>
+                    <p>General Knowledge</p>
+                    <small>10 Questions</small>
+                </div>
+                <div class="box">
+                    <p class="emoje">🌲</p>
+                    <p>Data Structures</p>
+                    <small>10 Questions</small>
+                </div>
+                <div class="box">
+                    <p class="emoje">🐍</p>
+                    <p>Python</p>
+                    <small>10 Questions</small>
+                </div>
+                <div class="box">
+                    <p class="emoje">💻</p>
+                    <p>HTML</p>
+                    <small>10 Questions</small>
+                </div>
+                <div class="box">
+                    <p class="emoje">🎨</p>
+                    <p>CSS</p>
+                    <small>10 Questions</small>
+                </div>
+                <div class="box">
+                    <p class="emoje">⚡</p>
+                    <p>JavaScript</p>
+                    <small>10 Questions</small>
+                </div>
             </div>
+
+            <h3 id="h3">🧠 Difficulty</h3>
+            <div id="difBtn">
+                <button id="easyBtn">Easy</button>
+                <button id="medBtn">Medium</button>
+                <button id="hardBtn">Hard</button>
+            </div>
+
+            <button id="stBtn">
+                <i class="fa-solid fa-play"></i> Start Qiuz
+            </button>
         </div>
     </section>
 </body>
