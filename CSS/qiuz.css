@@ -8,7 +8,8 @@ body{
     align-items: center;
     justify-content: center;
     height: 100vh;
-    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .quiz-container{
     width: 60vw;
@@ -145,4 +146,156 @@ body{
     height: 100%;
     width: 10%;
     border-radius: 10px;
+}
+
+    /* Popup score  */
+.overlay-hidden{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0,0,0,0.4);
+    backdrop-filter: blur(4px);
+    display: none;
+}
+.popup-box{
+    background-color: white;
+    height: 70vh;
+    width: 40vw;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+}
+.popup-box h2{
+    margin: 0;
+    width: 100%;
+}
+#popup-icon{
+    background-color: rgb(99, 102, 241);
+    padding: 10px 15px 10px 15px;
+    color: white;
+    border-radius: 10px;
+}
+
+/* scroe circle percentage... */
+.circle{
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: conic-gradient(#4F6EF7 0deg 252deg,#ddd 252deg 360deg);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.inner-circle{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.inner-circle h1{
+    margin: 5px;
+}
+.inner-circle small{
+    color: gray;
+    font-weight: 600;
+}
+.pass-fail{
+    margin-top: 10px;
+    border: 2px solid rgb(90, 242, 90);
+    padding: 8px 15px 8px 15px;
+    width: 8vw;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 20px;
+    background-color: #cbfac1;
+}
+#ticked{
+    color: green;
+    font-size: large;
+}
+.pass-fail p{
+    display: inline-block;
+    margin: 0;
+    color: green;
+    font-weight: bold;
+}
+#p{
+    color: gray;
+    font-size: small;
+}
+
+/*    score boxes    */
+.score-bord{
+    width: 95%;
+    height: 13vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.box{
+    height: 10vh;
+    width: 25%;
+    border: 1px solid rgb(196, 196, 196);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+.box:hover{
+    cursor: pointer;
+    transform:translateY(-2px);
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.3);
+}
+.box h2{
+    margin: 0;
+    width: fit-content;
+}
+.box h5{
+    margin: 0;
+    color: gray;
+}
+#Correct-no{
+    color: #6ef74f;
+}
+#wrong-no{
+    color: #f74f4f;
+}
+#total-no{
+    color: #4F6EF7;
+}
+
+/* final submit button */
+#submit-score{
+    padding: 10px 20px 10px 20px;
+    font-weight: 600;
+    border-radius: 10px;
+    margin-top: 10px;
+    border: none;
+    background-color: #4F6EF7;
+    color: white;
+    transition: all 0.5s;
+}
+#submit-score:hover{
+    cursor: pointer;
+    background-color: #405acd;
+    transform: scale(1.1);
+}
+#submit-score:active{
+    transform: scale(0.9);
 }

@@ -62,6 +62,12 @@ function nextQuestion(){
         ques_no.textContent = "Question "+count;
         ques10.textContent = `Question ${count} of 10`;
     }
+    else{
+        let overlay = document.querySelector('.overlay-hidden');
+        let popup = document.querySelector('.popup-box');
+        overlay.style.display = "flex";
+        popup.style.display = "flex";
+    }
     btn.forEach((item)=>{
 
         item.classList.remove("correct"); // delete correct class
