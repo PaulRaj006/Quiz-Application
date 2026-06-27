@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="qiuz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <header>
+            <div class="head">
+                <p id="p1">Generals knowledge</p>
+                <span id="span">.</span>
+                <p id="p2">Easy</p>
+            </div>
+            <div class="timer">
+               <i class="fa-solid fa-stopwatch"></i><span id="time">30s</span>
+            </div>
+        </header>
+        <hr>
+        <div class="question-container">
+            <p class="ques-no">Question 1</p>
+            <h2 class="ques">What is the Capital of France?</h2>
+            <div class="ans-container">
+
+                <button class="btn"> 
+                    <div class="first">
+                        <div class="let-op">A</div>
+                        <div class="let-ans">Madrid</div>
+                    </div>
+                    <div class="last"></div>
+                </button>
+
+                <button class="btn"> 
+                    <div class="first">
+                        <div class="let-op">B</div>
+                        <div class="let-ans">Berlin</div>
+                    </div>
+                    <div class="last"></div>
+                </button>
+
+                <button class="btn"> 
+                    <div class="first">
+                        <div class="let-op">C</div>
+                        <div class="let-ans">Paris</div>
+                    </div>  
+                    <div class="last"></div>                  
+                </button>
+
+                <button class="btn"> 
+                    <div class="first">
+                        <div class="let-op">D</div>
+                        <div class="let-ans">Rome</div>
+                    </div>
+                    <div class="last"></div>
+                </button>
+            </div>
+
+        </div>
+        <button id="nextBtn">Next<i class="fa-solid fa-arrow-right-long"></i></button>
+        <div class="ques-bar">
+            <p class="ques10">Question 1 of 10</p>
+            <div class="bar">
+                <div class="fill"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="data.js"></script>
+<script src="qiuz.js"></script>
+</html>
