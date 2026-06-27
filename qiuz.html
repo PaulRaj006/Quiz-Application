@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz-Application</title>
+    <title>Quiz-Questions</title>
     <link rel="stylesheet" href="CSS/qiuz.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
 <body>
     <div class="quiz-container">
@@ -57,8 +58,8 @@
                     <div class="last"></div>
                 </button>
             </div>
-
         </div>
+
         <button id="nextBtn">Next<i class="fa-solid fa-arrow-right-long"></i></button>
         <div class="ques-bar">
             <p class="ques10">Question 1 of 10</p>
@@ -67,7 +68,49 @@
             </div>
         </div>
     </div>
+
+    <!-- Score Popup -->
+    <div class="overlay-hidden">
+        <div class="popup-box">
+            <h2>
+                <i id="popup-icon" class="fa-solid fa-lightbulb"></i>
+                QuizMaster
+            </h2>
+
+            <div class="circle">
+                <div class="inner-circle">
+                    <h1>70%</h1>
+                    <small>SCORE</small>
+                </div>
+            </div>
+
+            <div class="pass-fail">
+                <i id="ticked"  class="fa-solid fa-check"></i><p>Passed </p>
+            </div>
+            <div class="well-done">
+                <h3>Well Done,<span>Tamil</span>!</h3>
+            </div>
+            <p id="p">You scored <span>3</span> out of 10 in <span>General Knowledge </span><span> (easy)</span></p>
+            
+            <div class="score-bord">
+                <div class="box">
+                    <h2 id="Correct-no">5</h2>
+                    <h5>Correct</h5>
+                </div>
+                <div class="box">
+                    <h2 id="wrong-no">5</h2>
+                    <h5>Wrong</h5>
+                </div>
+                <div class="box">
+                    <h2 id="total-no">10</h2>
+                    <h5>Total</h5>
+                </div>
+            </div>
+
+            <button id="submit-score">Submit</button>
+        </div>
+    </div>
 </body>
 <script src="JS/data.js"></script>
-<script src="JS/quiz.js"></script>
+<script src="JS/qiuz.js"></script>
 </html>
