@@ -4,8 +4,15 @@ let ans = document.querySelectorAll('.let-ans');
 let fill = document.querySelector('.fill');
 let btn = document.querySelectorAll('.btn');
 
-let name = "Paul raj";
-let attempted = false;    //check user skip or fail in quiz
+// name get from localcStorage :
+let name = localStorage.getItem("userName");
+// category fet from localcStorage :
+let category = localStorage.getItem("category");
+// diffLevel get from local Storage :
+let diffLevel = localStorage.getItem("diffLevel")
+
+//check user skip or fail in quiz
+let attempted = false;    
 
 let currentQuestion = 0;
 
@@ -127,7 +134,6 @@ btn.forEach((item)=>{
     }
 });
 
-        
 
         // score updatation =========== popup ============= 
         // work agala ennanu kandupudi...............
@@ -153,6 +159,11 @@ function updateResult(){
         scoreout.textContent = score;
         wrong.textContent = 10 - score;
 
+        //category :
+        let category_id = document.getElementById('category-id');
+        let difficulty_id = document.getElementById('difficulty-id');
+        category_id.textContent = `${category} `
+
         circle.style.background = `conic-gradient(#4F6EF7 0deg ${degree}deg,#ddd ${degree}deg 360deg)`;
 
         // ✗ ✓
@@ -163,7 +174,8 @@ function updateResult(){
             status.style.color = "green";
             pass_fail.style.border = "2px solid rgb(90, 242, 90)";
             pass_fail.style.backgroundColor = "#cbfac1"
-            instruct.innerHTML = `🎉 Well Done, <span>${name}</span>!`;
+            instruct.innerHTML = `🎉 Well Done, <span>${name}</span> !`;
+            
         }
         else if (score == 5) {
             // Average
@@ -173,7 +185,7 @@ function updateResult(){
             status.style.color = "#f59e0b";
             pass_fail.style.border = "2px solid #fcd34d";
             pass_fail.style.backgroundColor = "#fef3c7";
-            instruct.innerHTML = `👍 Good Try, <span>${name}</span>!`;
+            instruct.innerHTML = `👍 Good Try, <span>${name}</span> !`;
         }
         else if(score == 0){
             icone.textContent = "✗"
@@ -183,7 +195,7 @@ function updateResult(){
             pass_fail.style.border = "2px solid rgb(242, 90, 90)";
             pass_fail.style.backgroundColor = "#facec1"
             if(attempted){
-                instruct.innerHTML = `😔 Better Luck Next Time, <span>${name}</span>!`;
+                instruct.innerHTML = `😔 Better Luck Next Time, <span>${name}</span> !`;
             }
 }
         else{
@@ -193,6 +205,11 @@ function updateResult(){
             status.style.color = "red";
             pass_fail.style.border = "2px solid rgb(242, 90, 90)";
             pass_fail.style.backgroundColor = "#facec1"
-            instruct.innerHTML = `💪 Keep Practising, <span>${name}</span>!`;
+            instruct.innerHTML = `💪 Keep Practising, <span>${name}</span> !`;
         }
+}
+
+let submit = document.getElementById('submit-score');
+submit.onclick=function(){
+    window.location.href = "index.html";
 }
