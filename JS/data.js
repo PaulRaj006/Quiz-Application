@@ -488,3 +488,564 @@ const pythonQuestions = {
     }
   ]
 };
+
+//HTML (easy,medium,hard) :
+const htmlQuestions = {
+  easy: [
+    {
+      question: "What does HTML stand for?",
+      options: [
+        "Hyper Text Markup Language",
+        "High Text Machine Language",
+        "Hyper Transfer Markup Language",
+        "Home Tool Markup Language"
+      ],
+      answer: "Hyper Text Markup Language"
+    },
+    {
+      question: "Which tag is used to create the largest heading?",
+      options: ["<h6>", "<heading>", "<h1>", "<head>"],
+      answer: "<h1>"
+    },
+    {
+      question: "Which HTML tag is used to create a paragraph?",
+      options: ["<para>", "<p>", "<text>", "<paragraph>"],
+      answer: "<p>"
+    },
+    {
+      question: "Which tag is used to insert an image?",
+      options: ["<picture>", "<image>", "<img>", "<src>"],
+      answer: "<img>"
+    },
+    {
+      question: "Which attribute specifies the image path?",
+      options: ["href", "src", "link", "path"],
+      answer: "src"
+    },
+    {
+      question: "Which tag is used to create a hyperlink?",
+      options: ["<a>", "<link>", "<href>", "<url>"],
+      answer: "<a>"
+    },
+    {
+      question: "Which tag creates a line break?",
+      options: ["<lb>", "<break>", "<br>", "<hr>"],
+      answer: "<br>"
+    },
+    {
+      question: "Which tag is used to create an unordered list?",
+      options: ["<ol>", "<ul>", "<li>", "<list>"],
+      answer: "<ul>"
+    },
+    {
+      question: "Which tag represents a list item?",
+      options: ["<item>", "<li>", "<ul>", "<ol>"],
+      answer: "<li>"
+    },
+    {
+      question: "Which tag is used to create a table row?",
+      options: ["<td>", "<tr>", "<th>", "<table>"],
+      answer: "<tr>"
+    }
+  ],
+
+  medium: [
+    {
+      question: "Which HTML5 tag is used for navigation links?",
+      options: ["<section>", "<nav>", "<header>", "<aside>"],
+      answer: "<nav>"
+    },
+    {
+      question: "Which tag is used for the main content of a webpage?",
+      options: ["<article>", "<main>", "<section>", "<body>"],
+      answer: "<main>"
+    },
+    {
+      question: "Which HTML element is used to collect user input?",
+      options: ["<input>", "<form>", "<textarea>", "<button>"],
+      answer: "<form>"
+    },
+    {
+      question: "Which input type hides the entered characters?",
+      options: ["text", "email", "password", "hidden"],
+      answer: "password"
+    },
+    {
+      question: "Which tag defines a table header cell?",
+      options: ["<td>", "<th>", "<tr>", "<thead>"],
+      answer: "<th>"
+    },
+    {
+      question: "Which tag is used to define the footer of a webpage?",
+      options: ["<bottom>", "<footer>", "<section>", "<end>"],
+      answer: "<footer>"
+    },
+    {
+      question: "Which attribute provides alternative text for an image?",
+      options: ["title", "alt", "name", "src"],
+      answer: "alt"
+    },
+    {
+      question: "Which HTML tag is used to embed a video?",
+      options: ["<media>", "<movie>", "<video>", "<embedvideo>"],
+      answer: "<video>"
+    },
+    {
+      question: "Which tag groups related form elements?",
+      options: ["<fieldset>", "<legend>", "<group>", "<section>"],
+      answer: "<fieldset>"
+    },
+    {
+      question: "Which HTML element is used for semantic independent content?",
+      options: ["<div>", "<article>", "<span>", "<section>"],
+      answer: "<article>"
+    }
+  ],
+
+  hard: [
+    {
+      question: "Which HTML5 element is used to draw graphics using JavaScript?",
+      options: ["<svg>", "<canvas>", "<graphic>", "<draw>"],
+      answer: "<canvas>"
+    },
+    {
+      question: "Which attribute makes an input field mandatory?",
+      options: ["validate", "required", "mandatory", "needed"],
+      answer: "required"
+    },
+    {
+      question: "Which HTML tag specifies metadata?",
+      options: ["<meta>", "<data>", "<head>", "<info>"],
+      answer: "<meta>"
+    },
+    {
+      question: "Which HTML element is used to define machine-readable date and time?",
+      options: ["<calendar>", "<datetime>", "<time>", "<clock>"],
+      answer: "<time>"
+    },
+    {
+      question: "Which HTML tag is used to embed external web content?",
+      options: ["<iframe>", "<embed>", "<frame>", "<object>"],
+      answer: "<iframe>"
+    },
+    {
+      question: "Which HTML attribute specifies a unique identifier?",
+      options: ["class", "id", "name", "key"],
+      answer: "id"
+    },
+    {
+      question: "Which semantic tag represents content related indirectly to the main content?",
+      options: ["<article>", "<aside>", "<section>", "<main>"],
+      answer: "<aside>"
+    },
+    {
+      question: "Which HTML tag is commonly used to create dropdown lists?",
+      options: ["<list>", "<option>", "<select>", "<dropdown>"],
+      answer: "<select>"
+    },
+    {
+      question: "Which HTML5 input type is used for email validation?",
+      options: ["mail", "email", "text", "address"],
+      answer: "email"
+    },
+    {
+      question: "Which declaration tells the browser to use HTML5?",
+      options: [
+        "<!DOCTYPE html>",
+        "<html5>",
+        "<doctype>",
+        "<HTML>"
+      ],
+      answer: "<!DOCTYPE html>"
+    }
+  ]
+};
+
+//CSS (easy,medium,hard) :
+const cssQuestions = {
+  easy: [
+    {
+      question: "What does CSS stand for?",
+      options: [
+        "Creative Style Sheets",
+        "Cascading Style Sheets",
+        "Computer Style Sheets",
+        "Colorful Style Sheets"
+      ],
+      answer: "Cascading Style Sheets"
+    },
+    {
+      question: "Which HTML tag is used to link an external CSS file?",
+      options: ["<css>", "<style>", "<link>", "<script>"],
+      answer: "<link>"
+    },
+    {
+      question: "Which property is used to change the text color?",
+      options: ["font-color", "color", "text-color", "foreground"],
+      answer: "color"
+    },
+    {
+      question: "Which property changes the background color?",
+      options: ["bgcolor", "background-color", "background", "color"],
+      answer: "background-color"
+    },
+    {
+      question: "Which property changes the font size?",
+      options: ["text-size", "font-style", "font-size", "size"],
+      answer: "font-size"
+    },
+    {
+      question: "Which property makes text bold?",
+      options: ["font-weight", "font-style", "text-bold", "weight"],
+      answer: "font-weight"
+    },
+    {
+      question: "Which property aligns text horizontally?",
+      options: ["align", "text-align", "justify", "font-align"],
+      answer: "text-align"
+    },
+    {
+      question: "Which selector selects all elements?",
+      options: [".", "#", "*", "&"],
+      answer: "*"
+    },
+    {
+      question: "Which symbol is used for an ID selector?",
+      options: [".", "#", "*", "$"],
+      answer: "#"
+    },
+    {
+      question: "Which symbol is used for a class selector?",
+      options: [".", "#", "@", "*"],
+      answer: "."
+    }
+  ],
+
+  medium: [
+    {
+      question: "Which CSS property is used to create space inside an element?",
+      options: ["margin", "padding", "spacing", "border"],
+      answer: "padding"
+    },
+    {
+      question: "Which property creates space outside an element?",
+      options: ["margin", "padding", "gap", "space"],
+      answer: "margin"
+    },
+    {
+      question: "Which property rounds the corners of an element?",
+      options: ["corner-radius", "radius", "border-radius", "round"],
+      answer: "border-radius"
+    },
+    {
+      question: "Which display value makes an element a flex container?",
+      options: ["inline", "block", "grid", "flex"],
+      answer: "flex"
+    },
+    {
+      question: "Which property is used to add a shadow around an element?",
+      options: ["text-shadow", "box-shadow", "shadow", "drop-shadow"],
+      answer: "box-shadow"
+    },
+    {
+      question: "Which property changes the transparency of an element?",
+      options: ["opacity", "visibility", "display", "alpha"],
+      answer: "opacity"
+    },
+    {
+      question: "Which CSS property changes the mouse cursor style?",
+      options: ["pointer", "cursor", "mouse", "hover"],
+      answer: "cursor"
+    },
+    {
+      question: "Which property is used to control the stacking order of elements?",
+      options: ["order", "position", "z-index", "layer"],
+      answer: "z-index"
+    },
+    {
+      question: "Which CSS property specifies the type of positioning?",
+      options: ["display", "position", "float", "align"],
+      answer: "position"
+    },
+    {
+      question: "Which value keeps an element fixed even while scrolling?",
+      options: ["absolute", "relative", "fixed", "sticky"],
+      answer: "fixed"
+    }
+  ],
+
+  hard: [
+    {
+      question: "Which CSS layout module is mainly used for two-dimensional layouts?",
+      options: ["Flexbox", "Grid", "Float", "Position"],
+      answer: "Grid"
+    },
+    {
+      question: "Which Flexbox property aligns items horizontally?",
+      options: [
+        "align-items",
+        "justify-content",
+        "align-content",
+        "flex-direction"
+      ],
+      answer: "justify-content"
+    },
+    {
+      question: "Which Flexbox property aligns items vertically?",
+      options: [
+        "align-items",
+        "justify-content",
+        "display",
+        "flex-wrap"
+      ],
+      answer: "align-items"
+    },
+    {
+      question: "Which CSS unit is relative to the root element's font size?",
+      options: ["px", "em", "rem", "%"],
+      answer: "rem"
+    },
+    {
+      question: "Which pseudo-class applies styles when the mouse is over an element?",
+      options: [":focus", ":hover", ":active", ":visited"],
+      answer: ":hover"
+    },
+    {
+      question: "Which pseudo-class styles a clicked link?",
+      options: [":hover", ":visited", ":active", ":focus"],
+      answer: ":active"
+    },
+    {
+      question: "Which property is used to animate CSS changes smoothly?",
+      options: ["animation", "transition", "transform", "effect"],
+      answer: "transition"
+    },
+    {
+      question: "Which CSS function rotates an element?",
+      options: [
+        "rotate()",
+        "translate()",
+        "scale()",
+        "skew()"
+      ],
+      answer: "rotate()"
+    },
+    {
+      question: "Which property is used to define keyframe animations?",
+      options: [
+        "@animation",
+        "@transition",
+        "@keyframes",
+        "@frames"
+      ],
+      answer: "@keyframes"
+    },
+    {
+      question: "Which CSS property is used to change the order of flex items?",
+      options: [
+        "position",
+        "order",
+        "z-index",
+        "flex-order"
+      ],
+      answer: "order"
+    }
+  ]
+};
+
+// Java Script (easy,medium,hard) :
+const javascriptQuestions = {
+  easy: [
+    {
+      question: "Which company developed JavaScript?",
+      options: ["Microsoft", "Netscape", "Google", "Apple"],
+      answer: "Netscape"
+    },
+    {
+      question: "Which keyword is used to declare a variable in modern JavaScript?",
+      options: ["var", "let", "Both var and let", "int"],
+      answer: "Both var and let"
+    },
+    {
+      question: "Which function is used to display output in the browser console?",
+      options: ["print()", "console.log()", "display()", "write()"],
+      answer: "console.log()"
+    },
+    {
+      question: "Which symbol is used for single-line comments in JavaScript?",
+      options: ["<!-- -->", "#", "//", "/* */"],
+      answer: "//"
+    },
+    {
+      question: "Which keyword declares a constant variable?",
+      options: ["constant", "let", "const", "var"],
+      answer: "const"
+    },
+    {
+      question: "Which method displays a popup message?",
+      options: ["prompt()", "alert()", "confirm()", "popup()"],
+      answer: "alert()"
+    },
+    {
+      question: "Which function is used to get user input using a popup?",
+      options: ["alert()", "input()", "prompt()", "confirm()"],
+      answer: "prompt()"
+    },
+    {
+      question: "Which keyword is used to define a function?",
+      options: ["function", "func", "define", "method"],
+      answer: "function"
+    },
+    {
+      question: "Which operator is used for strict equality?",
+      options: ["=", "==", "===", "!="],
+      answer: "==="
+    },
+    {
+      question: "Which object represents the current webpage?",
+      options: ["window", "document", "screen", "history"],
+      answer: "document"
+    }
+  ],
+
+  medium: [
+    {
+      question: "Which method selects an element by its ID?",
+      options: [
+        "querySelector()",
+        "getElementById()",
+        "getElementsByClassName()",
+        "getElement()"
+      ],
+      answer: "getElementById()"
+    },
+    {
+      question: "Which method selects the first matching CSS selector?",
+      options: [
+        "querySelector()",
+        "querySelectorAll()",
+        "getElementById()",
+        "findElement()"
+      ],
+      answer: "querySelector()"
+    },
+    {
+      question: "Which method returns all matching elements?",
+      options: [
+        "querySelector()",
+        "querySelectorAll()",
+        "getElement()",
+        "selectAll()"
+      ],
+      answer: "querySelectorAll()"
+    },
+    {
+      question: "Which event occurs when a button is clicked?",
+      options: ["mouseover", "click", "submit", "keydown"],
+      answer: "click"
+    },
+    {
+      question: "Which loop repeats while a condition is true?",
+      options: ["for", "foreach", "while", "repeat"],
+      answer: "while"
+    },
+    {
+      question: "Which array method adds an element at the end?",
+      options: ["pop()", "shift()", "push()", "unshift()"],
+      answer: "push()"
+    },
+    {
+      question: "Which array method removes the last element?",
+      options: ["pop()", "shift()", "slice()", "splice()"],
+      answer: "pop()"
+    },
+    {
+      question: "Which statement skips the current loop iteration?",
+      options: ["break", "continue", "return", "exit"],
+      answer: "continue"
+    },
+    {
+      question: "Which keyword exits a loop immediately?",
+      options: ["continue", "return", "break", "stop"],
+      answer: "break"
+    },
+    {
+      question: "Which method converts JSON text into a JavaScript object?",
+      options: [
+        "JSON.stringify()",
+        "JSON.parse()",
+        "JSON.convert()",
+        "JSON.object()"
+      ],
+      answer: "JSON.parse()"
+    }
+  ],
+
+  hard: [
+    {
+      question: "Which method converts a JavaScript object into a JSON string?",
+      options: [
+        "JSON.parse()",
+        "JSON.stringify()",
+        "JSON.object()",
+        "JSON.encode()"
+      ],
+      answer: "JSON.stringify()"
+    },
+    {
+      question: "Which keyword is used to create a class?",
+      options: ["object", "prototype", "class", "constructor"],
+      answer: "class"
+    },
+    {
+      question: "Which keyword is used to inherit a class?",
+      options: ["implements", "extends", "inherits", "super"],
+      answer: "extends"
+    },
+    {
+      question: "Which keyword refers to the parent class constructor?",
+      options: ["parent", "base", "super", "this"],
+      answer: "super"
+    },
+    {
+      question: "Which keyword refers to the current object?",
+      options: ["self", "current", "this", "object"],
+      answer: "this"
+    },
+    {
+      question: "Which method is used to fetch data from an API?",
+      options: ["get()", "ajax()", "fetch()", "request()"],
+      answer: "fetch()"
+    },
+    {
+      question: "Which keyword is used to handle asynchronous code?",
+      options: ["sync", "await", "pause", "wait"],
+      answer: "await"
+    },
+    {
+      question: "Which keyword declares an asynchronous function?",
+      options: ["await", "promise", "async", "delay"],
+      answer: "async"
+    },
+    {
+      question: "Which storage keeps data even after the browser is closed?",
+      options: [
+        "sessionStorage",
+        "localStorage",
+        "cookieStorage",
+        "memoryStorage"
+      ],
+      answer: "localStorage"
+    },
+    {
+      question: "Which storage clears automatically when the browser tab is closed?",
+      options: [
+        "localStorage",
+        "sessionStorage",
+        "cookies",
+        "database"
+      ],
+      answer: "sessionStorage"
+    }
+  ]
+};
