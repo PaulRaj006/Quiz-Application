@@ -33,9 +33,20 @@ function timeDown(){
     },1000)
 }
 
+const allQuestion = {
+    "General Knowledge":gkQuestions,
+    "Data Structures":dataStructureQuestions,
+    "Python":pythonQuestions,
+    "HTML":htmlQuestions,
+    "CSS":cssQuestions,
+    "JavaScript":javascriptQuestions
+}
+
+let quizData = allQuestion[category][diffLevel];
+
 function loadQuestion(){
     timeDown();
-    let quiz = gkQuestions[currentQuestion];
+    let quiz = quizData[currentQuestion];
 
     ques.textContent = quiz.question;
     ans[0].textContent = quiz.options[0];
@@ -43,7 +54,7 @@ function loadQuestion(){
     ans[2].textContent = quiz.options[2];
     ans[3].textContent = quiz.options[3];
 
-    let progress = ((currentQuestion+1) / gkQuestions.length)*100;
+    let progress = ((currentQuestion+1) / quizData.length)*100;
     fill.style.width = progress + "%";
 }
 
@@ -64,7 +75,7 @@ function nextQuestion(){
     clearInterval(timer);   // stop the previeos timer
     time = 30;              // time begin from the 30 ;
 
-    if(currentQuestion < gkQuestions.length-1){
+    if(currentQuestion < quizData.length-1){
         currentQuestion++;
         loadQuestion();
         // question number increament 
@@ -98,7 +109,7 @@ btn.forEach((item)=>{
     item.onclick = function(){
         attempted = true;
         clearInterval(timer);     //stop the current timer
-        let qiuzAnswer = gkQuestions[currentQuestion];
+        let qiuzAnswer = quizData[currentQuestion];
         let last = item.querySelector('.last');
         let selectedAnswer = item.querySelector('.let-ans');
         let selectedOption = item.querySelector('.let-op');
@@ -162,7 +173,8 @@ function updateResult(){
         //category :
         let category_id = document.getElementById('category-id');
         let difficulty_id = document.getElementById('difficulty-id');
-        category_id.textContent = `${category} `
+        category_id.textContent = `${category} `;
+        difficulty_id.textContent = `(${diffLevel})`;
 
         circle.style.background = `conic-gradient(#4F6EF7 0deg ${degree}deg,#ddd ${degree}deg 360deg)`;
 
