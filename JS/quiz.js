@@ -223,5 +223,29 @@ function updateResult(){
 
 let submit = document.getElementById('submit-score');
 submit.onclick=function(){
+    let today = new Date();
+    
+    let currentDate = today.toLocaleDateString("en-GB");
+    let currentTime = today.toLocaleTimeString([],{
+        hour : "2-digit",
+        minute : "2-digit"
+    });
+    console.log(currentTime);
+    console.log(currentDate);
+    
+    let history = JSON.parse(localStorage.getItem("leaderboard")) || [];
+    
+    history.push({
+        name: name,
+        category: category,
+        difficulty: diffLevel,
+        score: score*10,
+        date: currentDate,
+        time: currentTime
+    });
+    console.log(history);
+
+    localStorage.setItem("leaderboard",JSON.stringify(history));
+
     window.location.href = "index.html";
 }
