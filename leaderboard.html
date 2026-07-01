@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="CSS/leaderboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-
 </head>
 <body>
     <nav>
@@ -61,7 +60,30 @@
             </div>     
         </div>
     </nav>
-    <table>
+    <section class="body">
+        <div class="header">
+            <div class="start">
+                <div class="icon">
+                    <div class="trophy-box">
+                        <span>🏆</span>
+                    </div>
+                </div>
+                <div class="title">
+                    <h1>Leaderboard</h1>
+                    <p>Quiz Master · Top performers this week</p>
+                </div>
+            </div>
+
+            <div class="end">
+                <div class="participent">
+                    <p>Participants <span id="no-players">10</span></p>
+                </div>
+                <div class="top">
+                    <p>⭐ Today's Top <span>Tamil (70%)</span></p>
+                </div>
+            </div>
+        </div>
+        <table>
         <thead>
             <tr>
                 <th>#</th>
@@ -74,5 +96,7 @@
         </thead>
         <tbody id="leaderboardBody"></tbody>
     </table>
+    </section>
+    
 </body>
 </html>
