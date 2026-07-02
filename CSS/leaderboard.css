@@ -71,10 +71,90 @@ header p{
 
 .header{
     display: flex;
+    justify-content: space-between;
+    width: 82vw;
+    background-color: white;
+    padding: 0px 40px 0px 40px;
+}
+.trophy-box{
+    display: flex;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+    width: 5vw;
+}
+#trophy{
+    font-size: xx-large;
+    animation: float 2.5s ease-in-out infinite,glow 2.5s ease-in-out infinite;
+}
+@keyframes float{
+    0%,100%{
+        transform: scale(1) rotate(0deg);
+    }
+    33%{
+        transform: scale(1.1) rotate(-5deg);
+    }
+    66%{
+        transform: scale(1.1) rotate(5deg);
+    }
+}
+@keyframes glow{
+    0%,100%{
+        filter: drop-shadow(0 0 0 px,gold);
+    }
+    50%{
+        filter: drop-shadow(0 0 10px gold);
+    }
+}
+.title > h1{
+    margin: 10px 0px 0px 0px;
+}
+.title > p{
+    margin: 7px 0px 5px 0px;
+    color: gray;
+    font-size: small;
 }
 .start{
     display: flex;
 }
 .end{
     display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.participent{
+    height: fit-content;
+    border-radius: 10px;
+    background:#eef5ff;
+    border:2px solid #bfd5ff;
+    color:#3b6ef5;
+    box-shadow:0 6px 18px rgba(80,120,255,.15);
+}
+.participent > p{
+    margin: 0;
+    padding: 5px 10px 5px 10px;
+    color: blue;
+    font-size: small;
+    font-weight: bold;
+}
+#no-players{
+    color: black;
+}
+.top{
+    height: fit-content;
+    border-radius: 10px;
+    background:#fff1c8;
+    border:2px solid #f3c341;
+    color:#9a5200;
+    box-shadow:0 6px 18px rgba(255,193,7,.25);
+}
+.top p{
+    margin: 0;
+    padding: 5px 10px 5px 10px;
+    font-size: small;
+    font-weight: bold;
+}
+.top span{
+    color: black;
+    font-weight: bold;
 }
