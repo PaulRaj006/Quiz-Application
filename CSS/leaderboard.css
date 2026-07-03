@@ -62,9 +62,12 @@ header p{
 
 .body{
     margin-left: 18vw;
-    background-color: rgb(232, 236, 246);
+    background-color: rgb(245, 248, 255);
     width: 82vw;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* header */
@@ -75,6 +78,7 @@ header p{
     width: 82vw;
     background-color: white;
     padding: 0px 40px 0px 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 .trophy-box{
     display: flex;
@@ -117,6 +121,7 @@ header p{
 .start{
     display: flex;
 }
+/* end */
 .end{
     display: flex;
     align-items: center;
@@ -157,4 +162,71 @@ header p{
 .top span{
     color: black;
     font-weight: bold;
+}
+
+/* Top 3 */
+.top-list{
+    width: 70%;
+    background-color: white;
+    height: 50%;
+    border-radius: 20px;
+    margin-top: 40px;
+    box-shadow: 0 0 50px rgb(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.top2{
+    background: linear-gradient(
+        180deg,
+        #e6efff 0%,
+        #e6efff 35%,
+        #e6efff 65%,
+        #d7e0ef 100%
+    );
+    width: 20%;
+    height: 70%;
+    border-radius: 20px;
+    border: 1px solid #e6efff;
+    box-shadow:
+    0 12px 30px rgba(195, 145, 92, 0.18),
+    inset 0 0 0 1px rgba(255,255,255,0.5);  
+    border-radius: 20px;
+    margin-top: 13vh;
+}
+.top1{
+    width: 25%;
+    height: 90%;
+    border-radius: 20px;
+    background: linear-gradient(
+        180deg,
+        #fff1c8 0%,
+        #fff1c8 35%,
+        #fff1c8 65%,
+        #fee7a3 100%
+    );
+    border: 2px solid #ffe69c;
+    box-shadow:
+    0 12px 30px rgba(195, 145, 92, 0.18),
+    inset 0 0 0 1px rgba(255,255,255,0.5);  
+    border-radius: 20px;
+    margin-top: 3vh;
+}
+.top3{
+    background-color: #bfd5ff;
+    width: 20%;
+    height: 70%;
+    background: linear-gradient(
+        180deg,
+        #FBF0E3 0%,
+        #F7EBDD 35%,
+        #F5E6D5 65%,
+        #f4d8b7 100%
+    );
+    border: 1px solid #E7C29B;
+    box-shadow:
+    0 12px 30px rgba(195, 145, 92, 0.18),
+    inset 0 0 0 1px rgba(255,255,255,0.5);  
+    border-radius: 20px;
+    margin-top: 13vh;
 }
