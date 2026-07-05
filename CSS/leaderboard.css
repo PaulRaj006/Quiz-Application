@@ -168,10 +168,10 @@ header p{
 .top-list{
     width: 70%;
     background-color: white;
-    height: 50%;
+    height: 60%;
     border-radius: 20px;
     margin-top: 40px;
-    box-shadow: 0 0 50px rgb(0,0,0,0.1);
+    box-shadow: 0 0 10px rgb(0,0,0,0.1);
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -184,7 +184,7 @@ header p{
         #e6efff 65%,
         #d7e0ef 100%
     );
-    width: 20%;
+    width: 24%;
     height: 70%;
     border-radius: 20px;
     border: 1px solid #e6efff;
@@ -195,13 +195,13 @@ header p{
     margin-top: 13vh;
 }
 .top1{
-    width: 25%;
-    height: 90%;
+    width: 30%;
+    height: 80%;
     border-radius: 20px;
     background: linear-gradient(
         180deg,
-        #fff1c8 0%,
-        #fff1c8 35%,
+        #fff8f1 0%,
+        #fffaeb 35%,
         #fff1c8 65%,
         #fee7a3 100%
     );
@@ -210,11 +210,11 @@ header p{
     0 12px 30px rgba(195, 145, 92, 0.18),
     inset 0 0 0 1px rgba(255,255,255,0.5);  
     border-radius: 20px;
-    margin-top: 3vh;
+    margin-top: 7vh;
 }
 .top3{
     background-color: #bfd5ff;
-    width: 20%;
+    width: 24%;
     height: 70%;
     background: linear-gradient(
         180deg,
@@ -229,4 +229,43 @@ header p{
     inset 0 0 0 1px rgba(255,255,255,0.5);  
     border-radius: 20px;
     margin-top: 13vh;
+}
+.top1,.top2,.top3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.madel{
+    margin: 20px 0px 5px 0px;
+    font-size: x-large;
+}
+.position1{
+    margin: 0;
+    background-color: goldenrod;
+    background: linear-gradient(to bottom,gold 0%,goldenrod 50%,goldenrod 100%);
+    padding: 5px;
+    border-radius: 50%;
+    color: white;
+    font-weight: 900;
+}
+.position2{
+    padding: 5px;
+    border-radius: 50%;
+    background: linear-gradient(
+    to bottom,
+    lightgray 0%,
+    gray 50%,
+    gray 100%
+    );
+    color: white;
+    font-weight: bold;
+}
+.profile{
+    background-color: rgb(88, 88, 255);
+    color: white;
+    padding: 15px 20px 15px 20px;
+    border-radius: 100%;
+    font-weight: bold;
+    font-size: x-large;
+    margin: 10px 0px 10px 0px;
 }
