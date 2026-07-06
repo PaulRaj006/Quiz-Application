@@ -89,20 +89,21 @@
                 <div class="profile">T</div>
                 <div class="name">Tamil</div>
                 <div class="category">General Knowledge . <span class="difficulty">easy</span></div>
-                <div class="score-box">
+                <div class="score-box sec">
                     <p class="score">70%</p>
-                    <p class="points">700</p>
+                    <p class="points">700 pts</p>
                 </div>
             </div>
             <div class="top1">
+                <p class="greed">👑</p>
                 <p class="madel">🥇</p>
                 <p class="position1">#1</p>
                 <div class="profile">T</div>
                 <div class="name">Tamil</div>
                 <div class="category">General Knowledge . <span class="difficulty">easy</span></div>
-                <div class="score-box">
+                <div class="score-box fst">
                     <p class="score">70%</p>
-                    <p class="points">700</p>
+                    <p class="points">700 pts</p>
                 </div>
             </div>
             <div class="top3">
@@ -111,26 +112,51 @@
                 <div class="profile">T</div>
                 <div class="name">Tamil</div>
                 <div class="category">General Knowledge . <span class="difficulty">easy</span></div>
-                <div class="score-box">
+                <div class="score-box thr">
                     <p class="score">70%</p>
-                    <p class="points">700</p>
+                    <p class="points">700 pts</p>
                 </div>
             </div>
         </div>
 
+        <div class="selection">
+            <div class="inputBox">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="input" placeholder="Search player name...">
+            </div>
+            <select name="" id="selectCategories">
+                <option value="">All Categories</option>
+                <option value="">General Knowledge</option>
+                <option value="">Data Structures</option>
+                <option value="">Python</option>
+                <option value="">HTML</option>
+                <option value="">CSS</option>
+                <option value="">JavaScript</option>
+            </select>
+            <select name="" id="selectDifficulties">
+                <option value="">All Difficulties</option>
+                <option value="">Data Structures</option>
+                <option value="">Python</option>
+                <option value="">HTML</option>
+                <option value="">CSS</option>
+                <option value="">JavaScript</option>
+            </select>
+            <button onclick="sortList()" id="sortBtn"><i class="fa-solid fa-arrow-up-wide-short"></i> Sort: Highest Score</button>
+        </div>
+
         <!-- <table>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Category</th>
-                <th>Score</th>
-                <th>Date</th>
-                <th>Time</th>
-            </tr>
-        </thead>
-        <tbody id="leaderboardBody"></tbody>
-    </table> -->
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Score</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody id="leaderboardBody"></tbody>
+        </table> -->
     </section>
 
 </body>
