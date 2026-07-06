@@ -164,7 +164,9 @@ header p{
     font-weight: bold;
 }
 
-/* Top 3 */
+/* =======================================
+            class : Top 3 
+======================================= */
 .top-list{
     width: 70%;
     background-color: white;
@@ -176,6 +178,8 @@ header p{
     justify-content: center;
     gap: 20px;
 }
+
+/* class top2 */
 .top2{
     background: linear-gradient(
         180deg,
@@ -194,8 +198,10 @@ header p{
     border-radius: 20px;
     margin-top: 13vh;
 }
+
+/* class top1 */
 .top1{
-    width: 30%;
+    width: 27%;
     height: 80%;
     border-radius: 20px;
     background: linear-gradient(
@@ -211,7 +217,10 @@ header p{
     inset 0 0 0 1px rgba(255,255,255,0.5);  
     border-radius: 20px;
     margin-top: 7vh;
+    position: relative;
 }
+
+/* class top3 */
 .top3{
     background-color: #bfd5ff;
     width: 24%;
@@ -234,15 +243,19 @@ header p{
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: all 0.5s;
 }
 .madel{
     margin: 20px 0px 5px 0px;
     font-size: x-large;
 }
 .position1{
-    margin: 0;
     background-color: goldenrod;
-    background: linear-gradient(to bottom,gold 0%,goldenrod 50%,goldenrod 100%);
+    background: linear-gradient(to bottom,
+    #ffe66d 0%,
+    #ffd700 40%,
+    #d4af37 100%
+    );
     padding: 5px;
     border-radius: 50%;
     color: white;
@@ -260,12 +273,157 @@ header p{
     color: white;
     font-weight: bold;
 }
+.position3{
+    padding: 5px;
+    border-radius: 50%;
+    background: linear-gradient(
+        to bottom,
+        #c58b54 0%,
+        #9c5b2e 50%,
+        #6f3e1f 100%
+    );
+    color: white;
+    font-weight: bold;
+}
 .profile{
     background-color: rgb(88, 88, 255);
     color: white;
-    padding: 15px 20px 15px 20px;
+    padding: 20px 25px 20px 25px;
     border-radius: 100%;
     font-weight: bold;
     font-size: x-large;
-    margin: 10px 0px 10px 0px;
+    margin: 0px 0px 10px 0px;
+}
+.position2,.position3{
+    margin: 0px 0px 10px 0px;
+}
+.name{
+    font-weight: bold;
+    font-size: large;
+}
+.category{
+    color: gray;
+    font-size: small;
+}
+.greed{
+    font-size: xx-large;
+    margin: 0;
+    position: absolute;
+    top: -3vh;
+}
+.score-box{
+    background-color: white;
+    padding: 10px 50px 10px 50px;
+    border-radius: 10px;
+}
+.score-box .points{
+    color: gray;
+    margin: 0;
+    font-size: small;
+}
+.score-box .score{
+    font-weight: bold;
+    margin: 0;
+    font-size: xx-large;
+}
+.fst{
+    margin: 20px 0px 10px 0px;
+}
+.fst .score{
+    color: rgb(207, 137, 8);
+    margin-bottom: 5px;
+}
+.sec{
+    padding: 5px 40px 5px 40px;
+    margin: 20px 0px 0px 0px;
+}
+.sec .score{
+    color: gray;
+    font-size: x-large;
+}
+.thr{
+    padding: 5px 40px 5px 40px;
+    margin: 20px 0px 0px 0px;
+}
+.thr .score{
+    color: brown;
+    font-size: x-large;
+}
+.top1:hover,.top2:hover,.top3:hover{
+    transform: translateY(-10px);
+    cursor: pointer;
+    box-shadow: 0px 5px 10px rgb(0,0,0,0.3);
+}
+
+/* =======================================
+            class : selection
+======================================= */
+.selection{
+    width: 80%;
+    margin: 20px 0px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* input box section */
+.inputBox{
+    padding: 3px 5px 3px 5px;
+    border-radius: 10px;
+    width: 50%;
+    background-color: white;
+    padding-left: 10px;
+    border: 1px solid lightgray;
+    box-shadow: 0px 3px 5px rgb(0,0,0,0.3);
+}
+.inputBox:focus{
+    border: 1px solid blue;
+}
+.inputBox:focus-within{
+    border: 1px solid rgb(0, 191, 255);
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.4);
+}
+.inputBox i{
+    color: gray;
+    font-size: small;
+}
+#input{
+    border: none;
+    width: 95%;
+    padding: 7px 12px;
+    
+}
+select:focus,
+#input:focus{
+    outline: none;
+}
+select,button{
+    border-radius: 10px;
+}
+select{
+    padding-left: 10px;
+    border: 1px solid lightgray;
+    box-shadow: 0px 3px 5px rgb(0,0,0,0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+#sortBtn{
+    color: blue;
+    background-color: #e8eeff;
+    border: 1px solid rgb(31, 155, 197);
+    padding: 7px 12px 7px 12px;
+    box-shadow: 0px 3px 5px rgb(0,0,0,0.3);
+    transition: all 0.3s ease-in-out;
+}
+select:focus{
+    border: 1px solid rgb(0, 191, 255);
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.4);
+}
+select,
+#sortBtn:hover{
+    cursor: pointer;
+}
+
+#sortBtn:active,
+select:active{
+    transform: scale(0.9);
 }
