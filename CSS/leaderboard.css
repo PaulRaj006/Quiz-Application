@@ -427,3 +427,13 @@ select,
 select:active{
     transform: scale(0.9);
 }
+table{
+    margin: 20px 0px 0px 0px;
+    width: 80%;
+}
+th{
+    padding: 10px 10px 5px 10px;
+    color: rgb(105, 105, 105);
+    font-size: small;
+    font-weight: 600;
+}
