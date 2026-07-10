@@ -64,10 +64,11 @@ header p{
     margin-left: 18vw;
     background-color: rgb(245, 248, 255);
     width: 82vw;
-    height: 100vh;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 100px;
 }
 
 /* header */
@@ -189,7 +190,7 @@ header p{
         #d7e0ef 100%
     );
     width: 24%;
-    height: 70%;
+    height: fit-content;
     border-radius: 20px;
     border: 1px solid #e6efff;
     box-shadow:
@@ -202,7 +203,7 @@ header p{
 /* class top1 */
 .top1{
     width: 27%;
-    height: 80%;
+    height: fit-content;
     border-radius: 20px;
     background: linear-gradient(
         180deg,
@@ -224,7 +225,7 @@ header p{
 .top3{
     background-color: #bfd5ff;
     width: 24%;
-    height: 70%;
+    height: fit-content;
     background: linear-gradient(
         180deg,
         #FBF0E3 0%,
@@ -285,7 +286,7 @@ header p{
     color: white;
     font-weight: bold;
 }
-.profile{
+.profileTop{
     background-color: rgb(88, 88, 255);
     color: white;
     padding: 20px 25px 20px 25px;
@@ -315,6 +316,7 @@ header p{
     background-color: white;
     padding: 10px 50px 10px 50px;
     border-radius: 10px;
+    
 }
 .score-box .points{
     color: gray;
@@ -335,7 +337,7 @@ header p{
 }
 .sec{
     padding: 5px 40px 5px 40px;
-    margin: 20px 0px 0px 0px;
+    margin: 20px 0px 10px 0px;
 }
 .sec .score{
     color: gray;
@@ -343,7 +345,7 @@ header p{
 }
 .thr{
     padding: 5px 40px 5px 40px;
-    margin: 20px 0px 0px 0px;
+    margin: 20px 0px 10px 0px;
 }
 .thr .score{
     color: brown;
@@ -359,8 +361,8 @@ header p{
             class : selection
 ======================================= */
 .selection{
-    width: 80%;
-    margin: 20px 0px 0px 0px;
+    width: 90%;
+    margin: 40px 0px 0px 0px;
     display: flex;
     justify-content: space-between;
 }
@@ -429,7 +431,7 @@ select:active{
 }
 table{
     margin: 20px 0px 0px 0px;
-    width: 80%;
+    width: 90%;
 }
 th{
     padding: 10px 10px 5px 10px;
@@ -437,4 +439,21 @@ th{
     font-size: small;
     font-weight: 600;
 }
-console.log(data);
+.player-info{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.profile{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:18px;
+    font-weight:700;
+    flex-shrink:0;
+}
