@@ -1,6 +1,19 @@
 let sortBtn = document.getElementById("sortBtn");
 let data = JSON.parse(localStorage.getItem("leaderboard")) || [];
 let tbody = document.getElementById("leaderboardBody");
+let searchInput = document.getElementById('input');
+
+let categorySelect = document.getElementById("selectCategories");
+let difficultySelect = document.getElementById("selectDifficulties");
+
+//add event listener for category and difficulty:
+categorySelect.addEventListener("change", displayTable);
+difficultySelect.addEventListener("change", displayTable);
+
+//add event listener for seacrch input:
+searchInput.addEventListener("input", function () {
+    displayTable();
+});
 
 let ascending = false;
 
@@ -22,22 +35,24 @@ function sortList(){
         
     }
     ascending = !ascending;
-    displayTopPlayers();
+    displayTopPlayers(fixedTopThree);
     displayTable();
 }
 
 // Initial Highest Sort
 data.sort((a,b)=>Number(b.score)-Number(a.score));
+const fixedTopThree = [...data.slice(0,3)];
 const topThree = data.slice(0,3);
 const remaining = data.slice(3);
-displayTopPlayers();
+
+displayTopPlayers(fixedTopThree);
 displayTable();
 
-function displayTopPlayers(){
+function displayTopPlayers(players){
 
-    let first = data[0];
-    let second = data[1];
-    let third = data[2];
+    let first = players[0];
+    let second = players[1];
+    let third = players[2];
 
     if(first){
         document.querySelector(".top1 .name").innerHTML = first.name;
@@ -48,6 +63,13 @@ function displayTopPlayers(){
         document.querySelector(".top1 .profileTop").innerHTML =
         first.name.charAt(0).toUpperCase();
         document.querySelector('.position1').innerHTML = "#1";
+        document.querySelector(".top1 .points").textContent = `${first.score * 100} pts`;
+    }else{
+        document.querySelector(".top1 .name").textContent = "No Player Yet";
+        document.querySelector(".top1 .profileTop").textContent = "--";
+        document.querySelector(".top1 .category").textContent = "-";
+        document.querySelector(".top1 .score").textContent = "0%";
+        document.querySelector('.top1 .points').innerHTML = "0pts"
     }
 
     if(second){
@@ -59,6 +81,13 @@ function displayTopPlayers(){
         document.querySelector(".top2 .profileTop").innerHTML =
         second.name.charAt(0).toUpperCase();
         document.querySelector('.position2').innerHTML = "#2";
+        document.querySelector(".top2 .points").textContent = `${second.score * 100} pts`;
+    }else{
+        document.querySelector(".top2 .name").textContent = "No Player Yet";
+        document.querySelector(".top2 .profileTop").textContent = "--";
+        document.querySelector(".top2 .category").textContent = "-";
+        document.querySelector(".top2 .score").textContent = "0%";
+        document.querySelector('.top2 .points').innerHTML = "0pts"
     }
 
     if(third){
@@ -70,16 +99,59 @@ function displayTopPlayers(){
         document.querySelector(".top3 .profileTop").innerHTML =
         third.name.charAt(0).toUpperCase();
         document.querySelector('.position3').innerHTML = "#3";
+        document.querySelector('.top3 .points').innerHTML = `${third.score * 100} pts`;
+    }else{
+        document.querySelector(".top3 .name").textContent = "No Player Yet";
+        document.querySelector(".top3 .profileTop").textContent = "--";
+        document.querySelector(".top3 .category").textContent = "-";
+        document.querySelector(".top3 .score").textContent = "0%";
+        document.querySelector('.top3 .points').innerHTML = "0pts"
     }
-
 }
 
 function displayTable(){
     console.table(data);
 
-    tbody.innerHTML = "";
+    tbody.innerHTML="";
     const remaining = data.slice(3);
-    remaining.forEach((item,index)=>{
+    
+    const filteredData = data.filter(item => {
+        const categoryMatch =
+            categorySelect.value === "" ||
+            item.category === categorySelect.value;
+        const difficultyMatch =
+            difficultySelect.value === "" ||
+            item.difficulty === difficultySelect.value;
+    return categoryMatch && difficultyMatch;
+    });
+
+    if(categorySelect.value !== "" || difficultySelect.value !== ""){
+        displayTopPlayers(filteredData.slice(0,3));
+    }else{
+        displayTopPlayers(fixedTopThree);
+    }
+
+    const filteredPlayers = remaining.filter(item =>{
+        const searchMatch =item.name.toLowerCase().includes(searchInput.value.toLowerCase());
+
+        const categoryMatch = categorySelect.value === "" || item.category === categorySelect.value;
+
+        const difficultyMatch = difficultySelect.value === "" || item.difficulty === difficultySelect.value;
+
+        return searchMatch && categoryMatch && difficultyMatch;
+    });
+
+    //No result found
+    if(filteredPlayers.length===0){
+        tbody.innerHTML=`
+        <tr>
+            <td colspan="7" style="text-align:center;padding:20px">
+                No player found 😕
+            </td>
+        </tr>`;
+        return;
+    }
+    filteredPlayers.forEach((item,index)=>{
 
     let color = "red";
 
