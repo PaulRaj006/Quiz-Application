@@ -236,6 +236,7 @@ submit.onclick=function(){
     let history = JSON.parse(localStorage.getItem("leaderboard")) || [];
     
     history.push({
+        rank: history.length + 1,
         name: name,
         category: category,
         difficulty: diffLevel,
@@ -247,5 +248,5 @@ submit.onclick=function(){
 
     localStorage.setItem("leaderboard",JSON.stringify(history));
 
-    window.location.href = "index.html";
+    window.location.href = "leaderboard.html";
 }
