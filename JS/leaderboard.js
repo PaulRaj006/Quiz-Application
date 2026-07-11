@@ -6,6 +6,9 @@ let searchInput = document.getElementById('input');
 let categorySelect = document.getElementById("selectCategories");
 let difficultySelect = document.getElementById("selectDifficulties");
 
+//no of player
+document.getElementById("no-players").textContent = data.length;
+
 //add event listener for category and difficulty:
 categorySelect.addEventListener("change", displayTable);
 difficultySelect.addEventListener("change", displayTable);
@@ -15,11 +18,11 @@ searchInput.addEventListener("input", function () {
     displayTable();
 });
 
-let ascending = false;
+let isLowest = false;
 
 function sortList(){
     console.log("Button Clicked")
-    if(ascending){
+    if(isLowest){
         // Highest
         data.sort((a,b)=>Number(b.score)-Number(a.score));
         
@@ -34,21 +37,23 @@ function sortList(){
         `<i class="fa-solid fa-arrow-down-wide-short"></i> Sort: Lowest Score`;
         
     }
-    ascending = !ascending;
-    displayTopPlayers(fixedTopThree);
+    isLowest = !isLowest;
     displayTable();
 }
 
 // Initial Highest Sort
 data.sort((a,b)=>Number(b.score)-Number(a.score));
+data.forEach((item,index)=>{
+    item.originalRank = index + 1;
+});
 const fixedTopThree = [...data.slice(0,3)];
-const topThree = data.slice(0,3);
-const remaining = data.slice(3);
 
 displayTopPlayers(fixedTopThree);
 displayTable();
 
 function displayTopPlayers(players){
+    // todays top player name with score..
+    document.getElementById("top-player").innerHTML = `${fixedTopThree[0].name} (${fixedTopThree[0].score}%)`;
 
     let first = players[0];
     let second = players[1];
@@ -113,7 +118,6 @@ function displayTable(){
     console.table(data);
 
     tbody.innerHTML="";
-    const remaining = data.slice(3);
     
     const filteredData = data.filter(item => {
         const categoryMatch =
@@ -125,19 +129,35 @@ function displayTable(){
     return categoryMatch && difficultyMatch;
     });
 
+    let remaining;
+
+    // Category or Difficulty filter active
     if(categorySelect.value !== "" || difficultySelect.value !== ""){
         displayTopPlayers(filteredData.slice(0,3));
-    }else{
+    
+        // Filter active-na ella filtered players-um table-la kaatu
+        remaining = filteredData;
+    }
+    else{
         displayTopPlayers(fixedTopThree);
+        // Highest / Lowest sort-ku remaining players
+        if(isLowest){
+
+            // Lowest Sort
+            remaining = data.filter(player =>
+                !fixedTopThree.some(top => top.name === player.name)
+            );
+        }else{
+
+            // Highest Sort
+            remaining = data.slice(3);
+        }
     }
 
     const filteredPlayers = remaining.filter(item =>{
         const searchMatch =item.name.toLowerCase().includes(searchInput.value.toLowerCase());
-
         const categoryMatch = categorySelect.value === "" || item.category === categorySelect.value;
-
         const difficultyMatch = difficultySelect.value === "" || item.difficulty === difficultySelect.value;
-
         return searchMatch && categoryMatch && difficultyMatch;
     });
 
@@ -145,7 +165,7 @@ function displayTable(){
     if(filteredPlayers.length===0){
         tbody.innerHTML=`
         <tr>
-            <td colspan="7" style="text-align:center;padding:20px">
+            <td colspan="7" style="text-align:center;padding:50px">
                 No player found 😕
             </td>
         </tr>`;
@@ -166,7 +186,7 @@ function displayTable(){
     const profileColors = [
         "#4F46E5",
         "#F59E0B",
-        "#10B981",
+        "#0d1613",
         "#EF4444",
         "#8B5CF6",
         "#06B6D4",
@@ -178,7 +198,7 @@ function displayTable(){
 
     tbody.innerHTML += `
     <tr>
-        <td>#${index + 4}</td>
+        <td>#${item.originalRank}</td>
         <td>
             <div class="player-info">
                 <div class="profile"
