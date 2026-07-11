@@ -430,14 +430,44 @@ select:active{
     transform: scale(0.9);
 }
 table{
+    border-spacing: 0;
+    border-collapse: collapse;
     margin: 20px 0px 0px 0px;
     width: 90%;
+    background-color: white;
+    border: 1px solid #e8eefa;
+    overflow: hidden;
+    border-radius: 18px;
+    box-shadow: 0 0px 10px rgba(0,0,0,0.3);
+}
+tbody tr{
+    transition:.25s;
+}
+tbody td{
+    padding: 22px;
+    border-bottom: 1px solid #edf2f7;
+}
+tbody tr:last-child td{
+    border-bottom: none;
+}
+thead{
+    background: #e4f0ff;
 }
 th{
     padding: 10px 10px 5px 10px;
     color: rgb(105, 105, 105);
     font-size: small;
     font-weight: 600;
+}
+th{
+    height: 56px;
+    padding: 0 22px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #5d6b82;
+    border-bottom: 1px solid #dce5ef;
 }
 .player-info{
     display:flex;
