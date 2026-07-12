@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qiuz History</title>
+    <link rel="stylesheet" href="CSS/history.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+<body>
+    <nav>
+        <header>
+            <h3>🎯 PlacementPro</h3>
+            <p>Campus Placement Preparation</p>
+            <hr>
+        </header>
+
+        <div class="section">
+            <div class="section-box index" >
+                <div class="icon">
+                    <i class="fa-solid fa-house"></i>
+                </div>
+                <a href="index.html">Home</a>
+            </div>
+
+            <div class="section-box">
+                <div class="icon">
+                    <i class="fa-solid fa-book"></i>
+                </div>
+                <a href="">Categories</a>
+            </div>
+
+            <div class="section-box leaderboard">
+                <div class="icon">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <a href="leaderboard.html">Leaderboard</a>
+            </div>
+
+            <div class="section-box">
+                <div class="icon">
+                    <i class="fa-solid fa-chart-column"></i>
+                </div>
+                <a href="">Dashboard</a>
+            </div>
+
+            <div class="section-box active history">
+                <div class="icon">
+                    <i class="fa-solid fa-history"></i> 
+                </div>
+                <a href="history.html">History</a>
+            </div>
+
+            <div class="section-box">
+                <div class="icon">
+                    <i class="fa-solid fa-circle-info"></i>
+                </div>
+                <a href="">About</a>
+            </div>
+
+            <div class="section-box">
+                <div class="icon">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+                <a href="">Contact</a>
+            </div>     
+        </div>
+    </nav>
+
+        <section class="Home">
+            <div class="nav">
+                <div class="first">
+                    <span>🕘</span>
+                    <div class="title">
+                        <h1>Quiz History</h1>
+                        <p>Every attempt, by every player, all in one place</p>
+                    </div>
+                </div>
+                <div class="second">
+                    <div class="export">
+                        <i class="fa-solid fa-download"></i>
+                        <p>Export CSV</p>
+                    </div>
+                    <div class="clear">
+                        <i class="fa-solid fa-trash"></i>
+                        <p>Clear History</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="body">
+                <div class="container">
+                    <div class="box">
+                        <p>Total Attempts</p>
+                        <span>0%</span>
+                    </div>
+                    <div class="box">
+                        <p>Total PLayers</p>
+                        <span>0%</span>
+                    </div>
+                    <div class="box">
+                        <p>Average Score</p>
+                        <span>0%</span>
+                    </div>
+                    <div class="box">
+                        <p>Highest Score</p>
+                        <span>0%</span>
+                    </div>
+                </div>
+
+                <div class="input-selection">
+                    <div class="inputBox">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="input" placeholder="Search player name...">
+                    </div>
+                    <select id="selectCategories">
+                        <option value="">All Categories</option>
+                        <option value="General Knowledge">General Knowledge</option>
+                        <option value="Data Structures">Data Structures</option>
+                        <option value="Python">Python</option>
+                        <option value="HTML">HTML</option>
+                        <option value="CSS">CSS</option>
+                        <option value="JavaScript">JavaScript</option>
+                    </select>
+        
+                    <select id="selectDifficulties">
+                        <option value="">All Difficulties</option>
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                    <input type="date" id="date">
+                    <select id="selectDifficulties">
+                        <option value="">Sort Latest</option>
+                        <option value="oldest">Sort Oldest</option>
+                        <option value="highest">Sort Highest Score</option>
+                        <option value="lowest">Sort Lowest Score</option>
+                    </select>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>PLAYER</th>
+                            <th>CATEGORY</th>
+                            <th>DIFFICULTY</th>
+                            <th>SCORE</th>
+                            <th>POINTS</th>
+                            <th>DATE</th>
+                            <th>TIME</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyBody">
+                        <tr>
+                            <td colspan="8" class="no-data">
+                                No records found 😕
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+        </section>
+    
+</body>
+<script src="JS/history.js"></script>
+</html>
