@@ -205,12 +205,21 @@ function displayTable(){
                      style="background:${profileColor}">
                     ${initial}
                 </div>
-                <span>${item.name}</span>
+                <span style="font-weight: bold;font-size: small;">${item.name}</span>
             </div>
         </td>
 
-        <td>${item.category}</td>
-        <td>${item.difficulty}</td>
+        <td>
+            <span class="category-badge ${item.category.replace(/\s+/g,'')}">
+                ${item.category}
+            </span>
+        </td>
+
+        <td>
+            <span class="difficulty-badge ${item.difficulty.toLowerCase()}">
+                ${item.difficulty}
+            </span>
+        </td>
 
         <td style="color:${color};font-weight:bold">
             ${item.score}%
