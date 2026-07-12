@@ -250,6 +250,81 @@ header p{
     margin: 20px 0px 5px 0px;
     font-size: x-large;
 }
+
+.profileTop{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:50%;
+    font-size:48px;
+    font-weight:700;
+    color:#fff;
+    background:linear-gradient(
+        135deg,
+        #7C6CF7 0%,
+        #6667F0 100%
+    );
+    border:4px solid #fff;
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.15),
+        inset 0 2px 4px rgba(255,255,255,.25);
+    margin:12px auto;
+}
+
+.top1 .profileTop{
+    width:80px;
+    height:80px;
+    background:linear-gradient(
+        135deg,
+        #7C6CF7,
+        #6667F0
+    );
+    border:5px solid #fff;
+    box-shadow:
+        0 0 0 6px #FFE08A,
+        0 14px 30px rgba(255,190,0,.35);
+}
+
+.top2 .profileTop{
+    width:70px;
+    height:70px;
+    box-shadow:
+        0 0 0 4px #d9d4d4,
+        0 0 0 4px #817e7e,
+        0 10px 25px rgba(0,0,0,.15);
+}
+
+.top3 .profileTop{
+    width:70px;
+    height:70px;
+    box-shadow:
+        0 0 0 4px #9d6043,
+        0 0 0 4px #a93905,
+        0 10px 25px rgba(0,0,0,.15);
+}
+
+/* Shine Effect.. */
+.profileTop{
+    position:relative;
+    overflow:hidden;
+}
+.profileTop::before{
+    content:"";
+    position:absolute;
+    top:-40%;
+    left:-80%;
+    width:40%;
+    height:180%;
+    background:rgba(255,255,255,.35);
+    transform:rotate(25deg);
+    transition:.8s;
+}
+.top1:hover .profileTop::before,
+.top2:hover .profileTop::before,
+.top3:hover .profileTop::before{
+    left:150%;
+}
+/* Rank position */
 .position1{
     background-color: goldenrod;
     background: linear-gradient(to bottom,
@@ -286,15 +361,6 @@ header p{
     color: white;
     font-weight: bold;
 }
-.profileTop{
-    background-color: rgb(88, 88, 255);
-    color: white;
-    padding: 20px 25px 20px 25px;
-    border-radius: 100%;
-    font-weight: bold;
-    font-size: x-large;
-    margin: 0px 0px 10px 0px;
-}
 .position2,.position3{
     margin: 0px 0px 10px 0px;
 }
@@ -316,7 +382,6 @@ header p{
     background-color: white;
     padding: 10px 50px 10px 50px;
     border-radius: 10px;
-    
 }
 .score-box .points{
     color: gray;
@@ -377,6 +442,9 @@ header p{
     border: 1px solid lightgray;
     box-shadow: 0px 3px 5px rgb(0,0,0,0.3);
 }
+.inputBox:hover{
+    box-shadow:0 8px 20px rgba(59,130,246,.15);
+}
 .inputBox:focus{
     border: 1px solid blue;
 }
@@ -429,29 +497,35 @@ select,
 select:active{
     transform: scale(0.9);
 }
+
+/* table section */
 table{
     border-spacing: 0;
     border-collapse: collapse;
     margin: 20px 0px 0px 0px;
     width: 90%;
-    background-color: white;
     border: 1px solid #e8eefa;
     overflow: hidden;
     border-radius: 18px;
     box-shadow: 0 0px 10px rgba(0,0,0,0.3);
 }
 tbody tr{
-    transition:.25s;
+    transition: all .25s;
 }
 tbody td{
-    padding: 22px;
-    border-bottom: 1px solid #edf2f7;
+    padding: 10px 22px 10px 22px;
+    border-top: 1px solid lightgray;
 }
-tbody tr:last-child td{
-    border-bottom: none;
+tbody tr:hover{
+    background:#f8fbff;
+    transform:scale(1.005);
+    box-shadow: 0px 3px 10px rgb(0,0,0,0.3);
+    box-shadow: 0 8px 12px -6px rgba(0, 0, 0, 0.3);
+    background-color: white;
 }
+
 thead{
-    background: #e4f0ff;
+    background:linear-gradient(to bottom,#eef5ff,#dfeaff);
 }
 th{
     padding: 10px 10px 5px 10px;
@@ -486,4 +560,158 @@ th{
     font-size:18px;
     font-weight:700;
     flex-shrink:0;
+}
+
+/* CSS for Category Badge */
+.category-badge{
+    display:inline-block;
+    padding:7px 15px;
+    border-radius:20px;
+    font-size:14px;
+    font-weight:600;
+    border:1px solid;
+}
+
+/* Now every category-ku different color. */
+.GeneralKnowledge{
+    background:#eef5ff;
+    color:#2f6df6;
+    border-color:#b8d3ff;
+    font-size: small;
+}
+
+.Python{
+    background:#fff6e6;
+    color:#d97706;
+    border-color:#ffd27a;
+    font-size: small;
+}
+
+.DataStructures{
+    background:#eefcf4;
+    color:#16a34a;
+    border-color:#a7f3d0;
+    font-size: small;
+}
+
+.HTML{
+    background:#fff1f2;
+    color:#e11d48;
+    border-color:#fecdd3;
+    font-size: small;
+}
+
+.CSS{
+    background:#f3e8ff;
+    color:#9333ea;
+    border-color:#d8b4fe;
+    font-size: small;
+}
+
+.JavaScript{
+    background:#fff9db;
+    color:#ca8a04;
+    border-color:#fde68a;
+    font-size: small;
+}
+
+/* Difficulty Badge */
+.difficulty-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:6px 14px;
+    border-radius:10px;
+    font-size:small;
+    font-weight:600;
+}
+.difficulty-badge::before{
+    content:"";
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:currentColor;
+}
+/* Now every difficulty-ku different color. */
+.easy{
+    background:#edfdf3;
+    color:#16a34a;
+}
+.medium{
+    background:#fff8dd;
+    color:#d97706;
+}
+.hard{
+    background:#fff1f2;
+    color:#dc2626;
+}
+
+/* top list pageload animation */
+.top1,
+.top2,
+.top3{
+    opacity: 0;
+    animation: podiumShow .7s ease forwards;
+}
+
+.top2{
+    animation-delay: 0.1s;
+}
+
+.top1{
+    animation-delay: 0.3s;
+}
+
+.top3{
+    animation-delay: 0.5s;
+}
+
+@keyframes podiumShow{
+    0%{
+        opacity: 0;
+        transform: translateY(60px) scale(.9);
+    }
+
+    70%{
+        opacity: 1;
+        transform: translateY(-8px) scale(1.03);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* pageload table animation */
+table{
+    animation:tableFade .5s ease;
+}
+
+@keyframes tableFade{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+tbody tr{
+    opacity: 0;
+    transform: translateY(20px);
+    animation: rowFade .5s ease forwards;
+}
+
+@keyframes rowFade{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
