@@ -1,0 +1,390 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    background-color: rgb(232, 236, 246);
+    display: flex;
+}
+body > nav{
+    height: 100vh;
+    width: 18vw;
+    border: 1px solid rgb(202, 202, 202);
+    background-color: white;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+header{
+    padding: 20px;
+}
+header h3{
+    margin: 0;
+    color: rgb(99, 102, 241);
+}
+header p{
+    font-size: small;
+    color: gray;
+}
+.section-box a {
+    margin: 0;
+    padding-left: 20px;
+    color: gray;
+    text-decoration: none;
+}
+.active{
+    background-color: rgb(232, 236, 246);
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    border-left: 5px solid rgb(99, 102, 241);
+}
+.section-box{
+    display: flex;
+    padding: 20px 20px 20px 30px;
+    transition: 0.3s;
+}
+.section-box:hover{
+    cursor: pointer;
+    background-color: rgb(232, 236, 246);
+    color: black;
+}
+.section-box:hover a,.icon{
+    color: black;
+}
+
+/* =======================================
+            section : Home 
+======================================= */
+.Home{
+    margin-left: 18vw;
+    background-color: rgb(232, 236, 246);
+    width: 82vw;
+    height: 100vh;
+    position: relative;
+}
+/* nav div class */
+.nav{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 50px 0px 50px;
+    width: 100%;
+    box-shadow: 0px 10px 10px rgb(0,0,0,0.1);
+}
+/* First div */
+.first{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.first span{
+    font-size: xx-large;
+}
+.title h1{
+    margin: 8px 0px 8px 0px;
+}
+.title p{
+    margin: 0;
+    color: gray;
+    margin-bottom: 5px;
+    font-size: small;
+}
+
+/* Second div */
+.second{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.export{
+    background: #EEFDF4;
+    border: 1px solid #86EFAC;
+    color: #16A34A;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding: 7px 10px 7px 10px;
+}
+.clear{
+    background: #FFF1F2;
+    border: 1px solid #FECACA;
+    color: #DC2626;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding: 7px 10px 7px 10px;
+}
+.export:hover,.clear:hover{
+    cursor: pointer;
+}
+.export p,.clear p{
+    margin: 0;
+    font-size: small;
+    font-weight: bold;
+    padding-left: 3px;
+}
+.export i,.clear i{
+    font-size: small;
+}
+/* body section */
+.body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* Container section */
+.container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    width: 90%;
+    gap: 20px;
+    margin: 40px 0px 0px 0px;
+}
+.box{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    padding: 20px 50px 10px 50px;
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.3);
+    transition: all 0.5s;
+}
+.box:hover{
+    cursor: pointer;
+    transform: translateY(-5px);
+}
+.box p{
+    margin: 0px 0px 10px 0px;
+    font-size: small;
+}
+.box span{
+    color: rgb(79, 79, 179);
+    font-size: x-large;
+    font-weight: bold;
+}
+
+/* =======================================
+            class : input-selection
+======================================= */
+.input-selection{
+    width: 90%;
+    margin: 30px 0px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+/* input box section */
+.inputBox{
+    padding: 3px 5px 3px 5px;
+    border-radius: 10px;
+    width: 43%;
+    background-color: white;
+    padding-left: 10px;
+    border: 1px solid lightgray;
+    box-shadow: 0px 3px 5px rgb(0,0,0,0.3);
+    transition: all .25s;
+}
+.inputBox:active{
+    transform: scale(0.9);
+}
+.inputBox:hover{
+    box-shadow:0 8px 20px rgba(59,130,246,.15);
+}
+.inputBox:focus{
+    border: 1px solid blue;
+}
+.inputBox:focus-within{
+    border: 1px solid rgb(0, 191, 255);
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.4);
+}
+.inputBox i{
+    color: gray;
+    font-size: small;
+}
+#input{
+    border: none;
+    width: 95%;
+    padding: 7px 12px;
+    
+}
+select:focus,
+#input:focus{
+    outline: none;
+}
+select,#date{
+    border-radius: 10px;
+}
+select{
+    padding-left: 10px;
+    border: 1px solid lightgray;
+    box-shadow: 0px 3px 5px rgb(0,0,0,0.3);
+    transition: all 0.3s ease-in-out;
+}
+select:focus{
+    border: 1px solid rgb(0, 191, 255);
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.4);
+}
+select:active{
+    transform: scale(0.9);
+}
+#date{
+    border: none;
+    box-shadow: 0px 3px 5px rgb(0,0,0,0.3);
+}
+#date:focus{
+    outline: none;
+}
+#selectDifficulties{
+    padding-right: 10px;
+}
+
+/* table section */
+table{
+    background-color: white;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin: 30px 0px 0px 0px;
+    width: 90%;
+    border: 1px solid #e8eefa;
+    overflow: hidden;
+    border-radius: 18px;
+    box-shadow: 0 0px 10px rgba(0,0,0,0.3);
+}
+tbody td{
+    padding: 10px 22px 10px 22px;
+    border-top: 1px solid lightgray;
+}
+thead{
+    background:linear-gradient(to bottom,#eef5ff,#dfeaff);
+}
+th{
+    height: 40px;
+    padding: 0 22px;
+    text-align: left;
+    font-size: small;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #5d6b82;
+    border-bottom: 1px solid #dce5ef;
+}
+.no-data{
+    text-align: center;
+    padding: 60px 0;
+    color: gray;
+    font-size: 16px;
+}
+tbody tr{
+    transition: all .25s;
+}
+tbody tr:hover{
+    background:#f8fbff;
+    transform:scale(1.005);
+    box-shadow: 0 8px 12px -6px rgba(0, 0, 0, 0.3);
+    background-color: white;
+}
+.player-info{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.profile{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:18px;
+    font-weight:700;
+    flex-shrink:0;
+}
+/* CSS for Category Badge */
+.category-badge{
+    display:inline-block;
+    padding:7px 15px;
+    border-radius:20px;
+    font-size:14px;
+    font-weight:600;
+    border:1px solid;
+}
+/* Now every category-ku different color. */
+.GeneralKnowledge{
+    background:#eef5ff;
+    color:#2f6df6;
+    border-color:#b8d3ff;
+    font-size: small;
+}
+
+.Python{
+    background:#fff6e6;
+    color:#d97706;
+    border-color:#ffd27a;
+    font-size: small;
+}
+
+.DataStructures{
+    background:#eefcf4;
+    color:#16a34a;
+    border-color:#a7f3d0;
+    font-size: small;
+}
+
+.HTML{
+    background:#fff1f2;
+    color:#e11d48;
+    border-color:#fecdd3;
+    font-size: small;
+}
+
+.CSS{
+    background:#f3e8ff;
+    color:#9333ea;
+    border-color:#d8b4fe;
+    font-size: small;
+}
+
+.JavaScript{
+    background:#fff9db;
+    color:#ca8a04;
+    border-color:#fde68a;
+    font-size: small;
+}
+
+/* Difficulty Badge */
+.difficulty-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:6px 14px;
+    border-radius:10px;
+    font-size:small;
+    font-weight:600;
+}
+.difficulty-badge::before{
+    content:"";
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:currentColor;
+}
+/* Now every difficulty-ku different color. */
+.easy{
+    background:#edfdf3;
+    color:#16a34a;
+}
+.medium{
+    background:#fff8dd;
+    color:#d97706;
+}
+.hard{
+    background:#fff1f2;
+    color:#dc2626;
+}
