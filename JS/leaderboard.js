@@ -3,6 +3,24 @@ let data = JSON.parse(localStorage.getItem("leaderboard")) || [];
 let tbody = document.getElementById("leaderboardBody");
 let searchInput = document.getElementById('input');
 
+// section-box page open
+const leaderboardBtn = document.querySelector(".leaderboard");
+leaderboardBtn.addEventListener("click", () => {
+    console.log("Leaderboard clicked");
+    window.location.href = "leaderboard.html";
+});
+
+const indexBtn = document.querySelector(".index");
+indexBtn.addEventListener("click", () => {
+    console.log("Home clicked");
+    window.location.href = "index.html";
+});
+const historyBtn = document.querySelector(".history");
+historyBtn.addEventListener("click", () => {
+    console.log("history clicked");
+    window.location.href = "history.html";
+});
+
 let categorySelect = document.getElementById("selectCategories");
 let difficultySelect = document.getElementById("selectDifficulties");
 

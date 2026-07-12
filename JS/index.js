@@ -1,5 +1,23 @@
 let start = document.getElementById('stBtn');
 
+// section-box page open
+const leaderboardBtn = document.querySelector(".leaderboard");
+leaderboardBtn.addEventListener("click", () => {
+    console.log("Leaderboard clicked");
+    window.location.href = "leaderboard.html";
+});
+
+const indexBtn = document.querySelector(".index");
+indexBtn.addEventListener("click", () => {
+    console.log("Home clicked");
+    window.location.href = "index.html";
+});
+const historyBtn = document.querySelector(".history");
+historyBtn.addEventListener("click", () => {
+    console.log("history clicked");
+    window.location.href = "history.html";
+});
+
 // Category
 let category = "";
 let boxes = document.querySelectorAll('.box');
@@ -51,3 +69,4 @@ start.onclick = function(){
     //itha last add pannanum
     window.location.href = "qiuz.html";
 }
+
