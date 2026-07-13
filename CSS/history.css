@@ -109,7 +109,15 @@ header p{
     align-items: center;
     border-radius: 10px;
     padding: 7px 10px 7px 10px;
+    transition: all .25s;
 }
+.export:hover{
+    background-color: #ddffea;
+}
+.export:active{
+    transform: scale(0.9);
+}
+
 .clear{
     background: #FFF1F2;
     border: 1px solid #FECACA;
@@ -118,6 +126,13 @@ header p{
     align-items: center;
     border-radius: 10px;
     padding: 7px 10px 7px 10px;
+    transition: all .25s;
+}
+.clear:hover{
+    background-color: #ffe5e7;
+}
+.clear:active{
+    transform: scale(0.9);
 }
 .export:hover,.clear:hover{
     cursor: pointer;
