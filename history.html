@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 <div class="second">
-                    <div class="export">
+                    <div class="export" id="exportBtn">
                         <i class="fa-solid fa-download"></i>
                         <p>Export CSV</p>
                     </div>
@@ -93,19 +93,19 @@
                 <div class="container">
                     <div class="box">
                         <p>Total Attempts</p>
-                        <span>0%</span>
+                        <span id="totalAttempts">0%</span>
                     </div>
                     <div class="box">
                         <p>Total PLayers</p>
-                        <span>0%</span>
+                        <span id="totalPlayers">0%</span>
                     </div>
                     <div class="box">
                         <p>Average Score</p>
-                        <span>0%</span>
+                        <span id="averageScore">0%</span>
                     </div>
                     <div class="box">
                         <p>Highest Score</p>
-                        <span>0%</span>
+                        <span id="highestScore">0%</span>
                     </div>
                 </div>
 
@@ -131,8 +131,8 @@
                         <option value="hard">Hard</option>
                     </select>
                     <input type="date" id="date">
-                    <select id="selectDifficulties">
-                        <option value="">Sort Latest</option>
+                    <select id="selectSort">
+                        <option value="latest">Sort Latest</option>
                         <option value="oldest">Sort Oldest</option>
                         <option value="highest">Sort Highest Score</option>
                         <option value="lowest">Sort Lowest Score</option>
