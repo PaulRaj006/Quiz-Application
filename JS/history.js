@@ -97,7 +97,7 @@ function displayTable(data){
     }
     console.log(historyData);
 }
-displayTable(historyData);
+
 
 // serch fields
 let searchInput = document.getElementById("input");
@@ -116,11 +116,24 @@ difficultySelect.addEventListener("change", filterData);
 let dateInput = document.getElementById("date");
 dateInput.addEventListener("change", filterData);
 
+function parseDateTime(item){
+    let [day, month, year] = item.date.split("/");
+    let [time, period] = item.time.split(" ");
+    let [hour, minute] = time.split(":").map(Number);
+
+    if(period.toLowerCase() === "pm" && hour !== 12) hour += 12;
+    if(period.toLowerCase() === "am" && hour === 12) hour = 0;
+
+    return new Date(year, month - 1, day, hour, minute);
+}
+
 //Select sort-list
 let sortSelect = document.getElementById("selectSort");
 sortSelect.addEventListener("change", filterData);
 
+
 function filterData(){
+    console.log("Filter Running");
 
     let search = searchInput.value.trim().toLowerCase();
     let category = categorySelect.value;
@@ -141,10 +154,12 @@ function filterData(){
             difficulty === "" ||
             item.difficulty.toLowerCase() === difficulty;
 
-        let dateMatch =
-            date === "" ||
-            item.date === date;
-
+        let dateMatch = true;
+        if (date !== "") {
+            let [day, month, year] = item.date.split("/");
+            let formattedDate = `${year}-${month}-${day}`;
+            dateMatch = formattedDate === date;
+        }
         return searchMatch &&
                categoryMatch &&
                difficultyMatch &&
@@ -152,18 +167,64 @@ function filterData(){
     });
 
     // Sorting
-    if(sort === "latest"){
-        filtered.sort((a,b)=> new Date(b.date) - new Date(a.date));
+    if (sort === "latest") {
+        filtered.sort((a, b) => parseDateTime(b) - parseDateTime(a));
     }
-    else if(sort === "oldest"){
-        filtered.sort((a,b)=> new Date(a.date) - new Date(b.date));
+    else if (sort === "oldest") {
+        filtered.sort((a, b) => parseDateTime(a) - parseDateTime(b));
     }
-    else if(sort === "highest"){
-        filtered.sort((a,b)=> b.score - a.score);
+    else if (sort === "highest") {
+        filtered.sort((a, b) => b.score - a.score);
     }
-    else if(sort === "lowest"){
-        filtered.sort((a,b)=> a.score - b.score);
+    else if (sort === "lowest") {
+        filtered.sort((a, b) => a.score - b.score);
     }
-
     displayTable(filtered);
+    updateCards(filtered);
+    
 }
+
+let totalAttempts = document.getElementById("totalAttempts");
+let totalPlayers = document.getElementById("totalPlayers");
+let averageScore = document.getElementById("averageScore");
+let highestScore = document.getElementById("highestScore");
+
+function updateCards(data){
+    totalAttempts.textContent = data.length;
+
+    let uniquePlayers = new Set(data.map(item => item.name));
+    totalPlayers.textContent = uniquePlayers.size;
+
+    if(data.length === 0){
+        averageScore.textContent = "0%";
+        highestScore.textContent = "0%";
+        return;
+    }
+    
+    let total = data.reduce((sum,item)=>sum + item.score,0);
+    averageScore.textContent =
+        (total / data.length).toFixed(1) + "%";
+    highestScore.textContent =
+        Math.max(...data.map(item=>item.score)) + "%";
+}
+//Export CSV download
+let exportBtn = document.getElementById("exportBtn");
+exportBtn.addEventListener("click", exportCSV);
+function exportCSV(){
+    if(historyData.length === 0){
+        alert("No history available!");
+        return;
+    }
+    let csv = "Name,Category,Difficulty,Score,Points,Date,Time\n";
+    historyData.forEach(item=>{
+        csv += `"${item.name}","${item.category}","${item.difficulty}","${item.score}%","${item.score * 1000}","${item.date}","${item.time}"\n`;    });
+    let blob = new Blob([csv],{type:"text/csv"});
+    let url = URL.createObjectURL(blob);
+    let a = document.createElement("a");
+    a.href = url;
+    a.download = "Quiz_History.csv";
+
+    a.click();
+    URL.revokeObjectURL(url);
+}
+filterData();
