@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 *{
     box-sizing: border-box;
+    font-family: "Inter", sans-serif;
 }
 body{
     margin: 0;
@@ -402,4 +404,106 @@ tbody tr:hover{
 .hard{
     background:#fff1f2;
     color:#dc2626;
+}
+
+/* popup message for clear history */
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    background-color: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
+}
+.popupMsg{
+    width: 30vw;
+    height: 40vh;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 50px;
+    position: relative;
+}
+.delete-icon{
+    width: 80px;
+    height: 80px;
+    border: 2px solid #f8d1d1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 18px;
+    margin-top: 10px;
+}
+
+.delete-icon .inner-circle{
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: #fdecec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-icon i{
+    font-size: 26px;
+    color: #ef4444;
+}
+p{
+    text-align: center;
+}
+#main{
+    margin: 10px 0px 0px 0px;
+}
+#p{
+    color: gray;
+}
+#p span{
+    font-weight: bold;
+    color: rgb(64, 64, 64);
+}
+#cancel{
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    background-color: gainsboro;
+    padding: 10px 50px 10px 50px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    color: rgb(64, 64, 64);
+    transition: all .25s;
+}
+#delete{
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    color: white;
+    background-color: #ef4444;
+    padding: 10px 50px 10px 50px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    transition: all .25s;
+}
+#delete:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+#cancel:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    background-color: rgb(197, 196, 196);
+    color: black;
+}
+#delete:active,#cancel:active{
+    transform: scale(0.9);
 }
