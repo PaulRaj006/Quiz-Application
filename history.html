@@ -82,7 +82,7 @@
                         <i class="fa-solid fa-download"></i>
                         <p>Export CSV</p>
                     </div>
-                    <div class="clear">
+                    <div class="clear" onclick="popupShow()">
                         <i class="fa-solid fa-trash"></i>
                         <p>Clear History</p>
                     </div>
@@ -163,7 +163,21 @@
             </div>
             
         </section>
-    
+        <div class="overlay">
+            <div class="popupMsg">
+                <div class="delete-icon">
+                    <div class="outer-circle">
+                        <div class="inner-circle">
+                            <i class="fa-solid fa-trash"></i>
+                        </div>
+                    </div>
+                </div>
+                <h2 id="main">Delete History?</h2>
+                <p id="p">Are you sure you want to delete <span>this quiz History</span>? This action cannot be undone.</p>
+                <button id="cancel" onclick="cancelUpdate()">Cancel</button>
+                <button id="delete" onclick="deleteUpdate()">Delete</button>
+            </div>
+        </div>
 </body>
 <script src="JS/history.js"></script>
 </html>
