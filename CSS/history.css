@@ -494,6 +494,9 @@ p{
     font-weight: bold;
     transition: all .25s;
 }
+#delete i{
+    padding-right: 5px;
+}
 #delete:hover{
     cursor: pointer;
     transform: scale(1.05);
