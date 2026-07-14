@@ -17,6 +17,15 @@ historyBtn.addEventListener("click", () => {
     window.location.href = "history.html";
 });
 
+let clear = document.querySelector('.clear');
+function popupShow(){
+    overlay.style.display = "flex";
+}
+let overlay=document.querySelector('.overlay');
+function cancelUpdate(){
+    overlay.style.display = "none";
+}
+
 let historyData = JSON.parse(localStorage.getItem("leaderboard")) || [];
 console.log(historyData);
 let historyBody = document.getElementById('historyBody');
