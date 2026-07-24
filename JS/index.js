@@ -17,6 +17,17 @@ historyBtn.addEventListener("click", () => {
     console.log("history clicked");
     window.location.href = "history.html";
 });
+const aboutBtn = document.querySelector(".about");
+aboutBtn.addEventListener("click", () => {
+    console.log("history clicked");
+    window.location.href = "about.html";
+});
+const contactBtn = document.querySelector(".contact");
+contactBtn.addEventListener("click", () => {
+    console.log("contact clicked");
+    window.location.href = "contact.html";
+});
+
 
 // Category
 let category = "";

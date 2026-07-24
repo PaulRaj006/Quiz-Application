@@ -23,6 +23,14 @@ aboutBtn.addEventListener("click", () => {
     window.location.href = "about.html";
 });
 
+const contactBtn = document.querySelector(".contact");
+contactBtn.addEventListener("click", () => {
+    console.log("contact clicked");
+    window.location.href = "contact.html";
+});
+
+
+
 // FAQ accordion
 document.querySelectorAll(".faq-item").forEach(item => {
 
