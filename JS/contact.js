@@ -42,3 +42,28 @@ stars.forEach(star=>{
         });
     });
 });
+
+let overlay = document.querySelector('.overlay');
+function cancelPopup(){
+    overlay.style.display = "none"
+}
+function showPopup(){
+    overlay.style.display = "flex"
+}
+
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    showPopup();
+
+    form.reset();
+
+    stars.forEach(star=>{
+        star.classList.remove("fa-solid");
+        star.classList.add("fa-regular");
+    });
+
+    selectedRating = 0;
+});
