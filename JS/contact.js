@@ -25,24 +25,7 @@ contactBtn.addEventListener("click", () => {
     window.location.href = "contact.html";
 });
 
-// Star rating
-let selectedRating = 0;
-const stars = document.querySelectorAll("#starRating i");
-stars.forEach(star=>{
-    star.addEventListener("click", function(){
-        selectedRating = Number(this.dataset.v);
-        stars.forEach(s=>{
-            if(Number(s.dataset.v) <= selectedRating){
-                s.classList.remove("fa-regular");
-                s.classList.add("fa-solid");
-            } else {
-                s.classList.remove("fa-solid");
-                s.classList.add("fa-regular");
-            }
-        });
-    });
-});
-
+//Form submit prevent :
 let overlay = document.querySelector('.overlay');
 function cancelPopup(){
     overlay.style.display = "none"
@@ -53,17 +36,110 @@ function showPopup(){
 
 const form = document.getElementById("contactForm");
 
-form.addEventListener("submit", function(e){
+let selectedRating = 0;
+const stars = document.querySelectorAll("#starRating i");
+
+const ratingError = document.getElementById("ratingError");
+
+const sendBtn = document.getElementById("sendBtn");
+const btnText = document.querySelector(".btn-text");
+const loader = document.querySelector(".loader");
+
+// form submit function
+form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    showPopup();
+    // rating error
+    if (selectedRating === 0) {
+        ratingError.textContent = "Please select a rating.";
+        return;
+    }
+    ratingError.textContent = "";
 
-    form.reset();
+    // get value from input 
+    const templateParams = {
+        name: document.getElementById("cName").value,
+        email: document.getElementById("cEmail").value,
+        subject: document.getElementById("cSubject").value,
+        message: document.getElementById("cMessage").value,
+        rating: selectedRating
+    };
 
-    stars.forEach(star=>{
-        star.classList.remove("fa-solid");
-        star.classList.add("fa-regular");
+    sendBtn.disabled = true;
+    btnText.innerHTML = "Sending...";
+    loader.style.display = "inline-block";
+
+    emailjs.send(
+        "service_8da8lor",
+        "template_iho3ky9",
+        templateParams
+    )
+    .then(function(){
+        loader.style.display = "none";
+        btnText.innerHTML = `
+        <i class="fa-solid fa-circle-check"></i>
+        Message Sent
+        `;
+        sendBtn.disabled = false;
+
+        showPopup();
+        setTimeout(() => {
+            btnText.innerHTML = `
+                <i class="fa-solid fa-paper-plane"></i>
+                Send Message
+            `;
+            sendBtn.disabled = false;
+        }, 2000);
+        form.reset();
+            stars.forEach(star=>{
+            star.classList.remove("fa-solid");
+            star.classList.add("fa-regular");
+        });
+        selectedRating = 0;
+    })
+
+   .catch(function (error) {
+
+      loader.style.display = "none";
+
+      btnText.innerHTML = `
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          Try Again
+      `;
+
+     sendBtn.disabled = false;
+
+     console.error(error);
+
+      alert("Failed to send message!");
+
+      setTimeout(() => {
+          btnText.innerHTML = `
+              <i class="fa-solid fa-paper-plane"></i>
+              Send Message
+         `;
+     }, 2000);
+
     });
-
-    selectedRating = 0;
 });
+
+//remove validate
+stars.forEach(star => {
+    star.addEventListener("click", function(){
+
+        selectedRating = Number(this.dataset.v);
+
+        ratingError.textContent = "";
+
+        stars.forEach(s => {
+            if(Number(s.dataset.v) <= selectedRating){
+                s.classList.remove("fa-regular");
+                s.classList.add("fa-solid");
+            }else{
+                s.classList.remove("fa-solid");
+                s.classList.add("fa-regular");
+            }
+        });
+    });
+});
+
