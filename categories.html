@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
+    <link rel="stylesheet" href="CSS/categories.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <nav>
+        <header>
+            <h3>🎯 PlacementPro</h3>
+            <p>Campus Placement Preparation</p>
+            <hr>
+        </header>
+
+        <div class="section">
+            <div class="section-box index" >
+                <div class="icon">
+                    <i class="fa-solid fa-house"></i>
+                </div>
+                <a href="index.html">Home</a>
+            </div>
+
+            <div class="section-box active categories">
+                <div class="icon">
+                    <i class="fa-solid fa-book"></i>
+                </div>
+                <a href="categories.html">Categories</a>
+            </div>
+
+            <div class="section-box leaderboard">
+                <div class="icon">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <a href="leaderboard.html">Leaderboard</a>
+            </div>
+
+            <div class="section-box dashboard">
+                <div class="icon">
+                    <i class="fa-solid fa-chart-column"></i>
+                </div>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+
+            <div class="section-box history">
+                <div class="icon">
+                    <i class="fa-solid fa-history"></i> 
+                </div>
+                <a href="history.html">History</a>
+            </div>
+
+            <div class="section-box about">
+                <div class="icon">
+                    <i class="fa-solid fa-circle-info"></i>
+                </div>
+                <a href="about.html">About</a>
+            </div>
+
+            <div class="section-box contact">
+                <div class="icon">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+                <a href="contact.html">Contact</a>
+            </div>     
+        </div>
+    </nav>
+    <section class="category-page">
+            <nav class="topbar">
+            <div class="topbar-left">
+                <div class="topbar-icon"><i class="fa-solid fa-layer-group"></i></div>
+                <div class="topbar-titles">
+                    <h4>📚 Categories</h4>
+                    <p>Explore placement preparation topics, choose your category, and improve your interview skills.</p>
+                </div>
+            </div>
+
+            <div class="topbar-stats">
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon--indigo"><i class="fa-solid fa-grip"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="statCategories">–</span>
+                        <span class="stat-label">Available Categories</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon--violet"><i class="fa-solid fa-list-check"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="statQuestions">–</span>
+                        <span class="stat-label">Total Questions</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon--green"><i class="fa-solid fa-thumbs-up"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="statRecommended">–</span>
+                        <span class="stat-label">Recommended</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon--amber"><i class="fa-solid fa-fire"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="statPopular">JavaScript</span>
+                        <span class="stat-label"> Most Attempted </span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <script src="JS/categories.js"></script>
+</body>
+</html>
