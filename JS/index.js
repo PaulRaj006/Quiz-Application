@@ -27,6 +27,16 @@ contactBtn.addEventListener("click", () => {
     console.log("contact clicked");
     window.location.href = "contact.html";
 });
+const categoriesBtn = document.querySelector(".categories");
+categoriesBtn.addEventListener("click", () => {
+    console.log("contact clicked");
+    window.location.href = "categories.html";
+});
+const dashboardBtn = document.querySelector(".dashboard");
+dashboardBtn.addEventListener("click", () => {
+    console.log("dashboard clicked");
+    window.location.href = "dashboard.html";
+});
 
 
 // Category
