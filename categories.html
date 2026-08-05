@@ -73,24 +73,17 @@
             <div class="topbar-left">
                 <div class="topbar-icon"><i class="fa-solid fa-layer-group"></i></div>
                 <div class="topbar-titles">
-                    <h4>📚 Categories</h4>
+                    <h2>📚 Categories</h2>
                     <p>Explore placement preparation topics, choose your category, and improve your interview skills.</p>
                 </div>
             </div>
 
             <div class="topbar-stats">
                 <div class="stat-card">
-                    <div class="stat-icon stat-icon--indigo"><i class="fa-solid fa-grip"></i></div>
+                    <div class="stat-icon stat-icon--violet"><i class="fa-solid fa-chart-line"></i></div>
                     <div class="stat-info">
-                        <span class="stat-value" id="statCategories">–</span>
-                        <span class="stat-label">Available Categories</span>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon stat-icon--violet"><i class="fa-solid fa-list-check"></i></div>
-                    <div class="stat-info">
-                        <span class="stat-value" id="statQuestions">–</span>
-                        <span class="stat-label">Total Questions</span>
+                        <span class="stat-value" id="statQuestions">AI & ML</span>
+                        <span class="stat-label"> New Added</span>
                     </div>
                 </div>
                 <div class="stat-card">
@@ -109,8 +102,46 @@
                 </div>
             </div>
         </nav>
+
+        <div class="body">
+            <!-- Featured banner -->
+            <div class="featured-banner">
+                <div class="hero-decor hero-decor-1"></div>
+                <div class="hero-decor hero-decor-2"></div>
+
+                <div class="featured-text">
+                    <span class="badge-featured"><i class="fa-solid fa-star"></i> Featured Category</span>
+                    <h2 id="featuredTitle">JavaScript Challenge</h2>
+                    <p id="featuredDesc">Sharpen your logic with our most attempted category this week — 30 curated questions across 3 difficulty levels.</p>
+                    <button class="startFeatured" id="featuredBtn">
+                        <i class="fa-solid fa-play"></i> Start Now
+                    </button>
+                </div>
+
+                <div class="featured-visual">
+                    <div class="featured-emoje">⚡</div>
+                </div>
+            </div>
+
+            <!-- Search + filter -->
+            <div class="cat-controls">
+                <div class="inputBox">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="catSearch" placeholder="Search category...">
+                </div>
+                <div class="filterChips" id="filterChips">
+                    <button class="chip active" data-filter="all">All</button>
+                    <button class="chip" data-filter="popular">🔥 Popular</button>
+                    <button class="chip" data-filter="recommended">💡 Recommended</button>
+                </div>
+            </div>
+
+            <h3>📚 All Categories</h3>
+            <div class="cat-grid" id="catGrid"></div>
+        </div>
     </section>
 
+    <script src="JS/data.js"></script>
     <script src="JS/categories.js"></script>
 </body>
 </html>
