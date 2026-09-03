@@ -5,10 +5,10 @@ leaderboardBtn.addEventListener("click", () => {
     window.location.href = "leaderboard.html";
 });
 
-const indexBtn = document.querySelector(".index");
+const indexBtn = document.querySelector(".home");
 indexBtn.addEventListener("click", () => {
     console.log("Home clicked");
-    window.location.href = "index.html";
+    window.location.href = "home.html";
 });
 
 const historyBtn = document.querySelector(".history");

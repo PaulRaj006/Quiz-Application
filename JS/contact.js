@@ -4,10 +4,10 @@ leaderboardBtn.addEventListener("click", () => {
     console.log("Leaderboard clicked");
     window.location.href = "leaderboard.html";
 });
-const indexBtn = document.querySelector(".index");
+const indexBtn = document.querySelector(".home");
 indexBtn.addEventListener("click", () => {
     console.log("Home clicked");
-    window.location.href = "index.html";
+    window.location.href = "home.html";
 });
 const historyBtn = document.querySelector(".history");
 historyBtn.addEventListener("click", () => {
@@ -50,16 +50,72 @@ const form = document.getElementById("contactForm");
 let selectedRating = 0;
 const stars = document.querySelectorAll("#starRating i");
 
+// Initailize the all error validation
 const ratingError = document.getElementById("ratingError");
+const nameError = document.getElementById("nameError");
+const emailError = document.getElementById("emailError");
+const subjectError = document.getElementById("subjectError");
+const messageError = document.getElementById("messageError");
 
 const sendBtn = document.getElementById("sendBtn");
 const btnText = document.querySelector(".btn-text");
 const loader = document.querySelector(".loader");
 
+// initialize text area count 
+const messageBox = document.getElementById("cMessage");
+const charCount = document.getElementById("charCount");
+messageBox.addEventListener("input", () => {
+    charCount.textContent = messageBox.value.length;
+});
+messageBox.addEventListener("input", () => {
+    const count = messageBox.value.length;
+    charCount.textContent = count;
+    if(count >= 450){
+        charCount.style.color = "#ef4444";
+    }else{
+        charCount.style.color = "gray";
+    }
+});
+
 // form submit function
 form.addEventListener("submit", function (e) {
     e.preventDefault();
 
+    let isValid = true;
+    const name = document.getElementById("cName").value.trim();
+    const email = document.getElementById("cEmail").value.trim();
+    const subject = document.getElementById("cSubject").value.trim();
+    const message = document.getElementById("cMessage").value.trim();
+
+    // Clear old errors
+    nameError.textContent = "";
+    emailError.textContent = "";
+    subjectError.textContent = "";
+    messageError.textContent = "";
+    // Name
+    if(name.length < 3){
+        nameError.textContent = "Name must contain at least 3 characters.";
+        isValid = false;
+    }
+    // Email
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailPattern.test(email)){
+        emailError.textContent = "Enter a valid email address.";
+        isValid = false;
+    }
+// Subject
+    if(subject.length < 5){
+        subjectError.textContent = "Subject must contain at least 5 characters.";
+        isValid = false;
+    }
+// Message
+    if(message.length < 20){
+        messageError.textContent = "Message must contain at least 20 characters.";
+        isValid = false;
+    }
+    if(!isValid){
+        return;
+    }
     // rating error
     if (selectedRating === 0) {
         ratingError.textContent = "Please select a rating.";
@@ -154,3 +210,15 @@ stars.forEach(star => {
     });
 });
 
+// click eskap button to close popup message
+document.addEventListener("keydown", (e)=>{
+    if(e.key==="Escape"){
+        cancelPopup();
+    }
+});
+// click overlay to close popup message
+overlay.addEventListener("click",(e)=>{
+    if(e.target===overlay){
+        cancelPopup();
+    }
+});

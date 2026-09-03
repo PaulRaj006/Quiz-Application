@@ -191,7 +191,7 @@ function renderCards(){
 // ---- Start quiz: preset the category on Home page (index.html handles the preset) ----
 function goToCategory(categoryName){
     localStorage.setItem("presetCategory", categoryName);
-    window.location.href = "index.html";
+    window.location.href = "home.html";
 }
 
 catGrid.addEventListener("click", function(e){
