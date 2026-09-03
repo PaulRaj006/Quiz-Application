@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>
+    <link rel="stylesheet" href="CSS/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <nav>
+        <header>
+            <h3>🎯 PlacementPro</h3>
+            <p>Campus Placement Preparation</p>
+            <hr>
+        </header>
+
+        <div class="section">
+            <div class="section-box home" >
+                <div class="icon">
+                    <i class="fa-solid fa-house"></i>
+                </div>
+                <a href="home.html">Home</a>
+            </div>
+
+            <div class="section-box categories">
+                <div class="icon">
+                    <i class="fa-solid fa-book"></i>
+                </div>
+                <a href="categories.html">Categories</a>
+            </div>
+
+            <div class="section-box leaderboard">
+                <div class="icon">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <a href="leaderboard.html">Leaderboard</a>
+            </div>
+
+            <div class="section-box active dashboard">
+                <div class="icon">
+                    <i class="fa-solid fa-chart-column"></i>
+                </div>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+
+            <div class="section-box history">
+                <div class="icon">
+                    <i class="fa-solid fa-history"></i> 
+                </div>
+                <a href="history.html">History</a>
+            </div>
+
+            <div class="section-box about">
+                <div class="icon">
+                    <i class="fa-solid fa-circle-info"></i>
+                </div>
+                <a href="about.html">About</a>
+            </div>
+
+            <div class="section-box contact">
+                <div class="icon">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+                <a href="contact.html">Contact</a>
+            </div>     
+        </div>
+    </nav>
+
+    <section class="dash-page">
+        <nav class="topbar">
+            <h4>Dashboard</h4>
+        </nav>
+
+        <div class="body">
+
+            <!-- Welcome card -->
+            <div class="welcome-card">
+                <div class="welcome-left">
+                    <div class="avatar" id="avatarInitial">?</div>
+                    <div>
+                        <h2 id="welcomeName">Welcome back!</h2>
+                        <p id="welcomeSub">Take a quiz to start tracking your placement prep journey.</p>
+                    </div>
+                </div>
+                <div class="welcome-right">
+                    <div class="mini-stat">
+                        <span id="wRank">--</span>
+                        <small>Rank</small>
+                    </div>
+                    <div class="mini-stat">
+                        <span id="wBest">--</span>
+                        <small>Best Score</small>
+                    </div>
+                    <div class="mini-stat">
+                        <span id="wStreak">--</span>
+                        <small>Streak</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stat cards -->
+            <div class="stat-grid" id="statGrid"></div>
+
+            <!-- Charts -->
+            <h3>📊 Performance Analytics</h3>
+            <div class="chart-grid">
+                <div class="chart-card">
+                    <h5>Category Performance</h5>
+                    <canvas id="categoryPie"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h5>Weekly Progress</h5>
+                    <canvas id="weeklyLine"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h5>Difficulty Analysis</h5>
+                    <canvas id="diffBar"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h5>Score Distribution</h5>
+                    <canvas id="scoreDoughnut"></canvas>
+                </div>
+            </div>
+
+            <div class="two-col">
+                <!-- Progress -->
+                <div class="panel">
+                    <h3>📈 Category Progress</h3>
+                    <div id="progressList"></div>
+                </div>
+
+                <!-- Achievements -->
+                <div class="panel">
+                    <h3>🏅 Achievements</h3>
+                    <div class="achieve-grid" id="achieveGrid"></div>
+                </div>
+            </div>
+
+            <div class="two-col">
+                <!-- Recent activity -->
+                <div class="panel">
+                    <h3>🕘 Recent Activity</h3>
+                    <div id="recentList"></div>
+                </div>
+
+                <!-- Weekly goal + quote -->
+                <div class="panel">
+                    <h3>🎯 Weekly Goal</h3>
+                    <p class="goal-sub">Complete 5 quizzes this week</p>
+                    <div class="progress-track big">
+                        <div class="progress-fill" id="goalFill" style="width:0%"></div>
+                    </div>
+                    <p class="goal-count" id="goalCount">0 / 5 completed</p>
+
+                    <hr class="divider">
+
+                    <h3>💬 Motivation</h3>
+                    <p class="quote" id="quoteBox">Loading quote...</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="JS/dashboard.js"></script>
+</html>
