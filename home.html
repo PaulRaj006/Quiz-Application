@@ -21,11 +21,11 @@
         </header>
 
         <div class="section">
-            <div class="section-box active index" >
+            <div class="section-box active home" >
                 <div class="icon">
                     <i class="fa-solid fa-house"></i>
                 </div>
-                <a href="index.html">Home</a>
+                <a href="home.html">Home</a>
             </div>
 
             <div class="section-box categories">
@@ -73,56 +73,145 @@
     </nav>
     <section class="Home">
         <nav>
-            <h4>Home</h4>
-            <button>Reaset Data</button>
-        </nav>
-        <div class="body">
-            <div class="body-head">
-                <h2>
-                    <i class="fa-solid fa-lightbulb"></i>
-                    QuizMaster
-                </h2>
-                <h3>Test What <br>You Know</h3>
-                <p>Choose a category, pick your difficulty, and challenge yourself with 10 questions and a live timer.</p>
-                
-                <label for="">YOUR NAME</label> <br>
-                <input type="text" id="userName" placeholder="Enter your name...">
+            <div class="navbar-left">
+                <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="navbar-titles">
+                    <h4><i class="fa-solid fa-house navbar-home-icon"></i> Home</h4>
+                    <span class="navbar-breadcrumb">PlacementPro <i class="fa-solid fa-chevron-right"></i> Home</span>
+                </div>
             </div>
 
+            <div class="navbar-center" aria-hidden="true">
+                <span class="navbar-greeting"><i class="fa-solid fa-wand-magic-sparkles"></i> Ready to practice today?</span>
+            </div>
+
+            <div class="navbar-right">
+                <button class="icon-btn" id="notifyBtn" type="button" aria-label="Notifications" title="Notifications">
+                    <i class="fa-regular fa-bell"></i>
+                </button>
+                <button class="icon-btn" id="helpBtn" type="button" aria-label="Help &amp; FAQs" title="Help &amp; FAQs">
+                    <i class="fa-regular fa-circle-question"></i>
+                </button>
+
+                <button class="ghost-btn" id="resetDataBtn" type="button">
+                    <i class="fa-solid fa-rotate-right"></i>
+                    <span>Reset Data</span>
+                </button>
+
+                <span class="navbar-divider" aria-hidden="true"></span>
+
+                <div class="profile-chip" id="profileChip" title="Logged in as">
+                    <span class="profile-avatar" id="profileAvatar">S</span>
+                    <span class="profile-meta">
+                        <span class="profile-name" id="profileName">Student</span>
+                        <span class="profile-role">Placement Candidate</span>
+                    </span>
+                </div>
+            </div>
+        </nav>
+        <div class="body">
+            <!-- ===================== Welcome hero ===================== -->
+            <div class="welcome-hero">
+                <div class="hero-bg" aria-hidden="true">
+                    <span class="glow glow-a"></span>
+                    <span class="glow glow-b"></span>
+                    <span class="dot-grid"></span>
+                    <span class="shape shape-a"></span>
+                    <span class="shape shape-b"></span>
+                    <span class="shape shape-c"></span>
+                </div>
+
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <span class="eyebrow"><i class="fa-solid fa-lightbulb"></i> QuizMaster</span>
+                        <p class="welcome-label">Welcome back</p>
+                        <h2>Hey, <span id="welcomeUser">Student</span>! 👋</h2>
+                        <p class="hero-sub">Ready to sharpen your skills and get one step closer to your placement goal? Choose a category, pick your difficulty, and challenge yourself with 10 questions and a live timer.</p>
+                    </div>
+                    <div class="hero-visual" aria-hidden="true">
+                        <div class="hero-visual-ring">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===================== Quick stats ===================== -->
+            <div class="stats-grid">
+                <div class="stat-card" style="--d:0">
+                    <div class="stat-icon"><i class="fa-solid fa-circle-question"></i></div>
+                    <div class="stat-info">
+                        <p class="stat-label">Questions Attempted</p>
+                        <p class="stat-value" id="statQuestions">0</p>
+                    </div>
+                </div>
+                <div class="stat-card" style="--d:1">
+                    <div class="stat-icon"><i class="fa-solid fa-flag-checkered"></i></div>
+                    <div class="stat-info">
+                        <p class="stat-label">Quizzes Completed</p>
+                        <p class="stat-value" id="statQuizzes">0</p>
+                    </div>
+                </div>
+                <div class="stat-card" style="--d:2">
+                    <div class="stat-icon"><i class="fa-solid fa-star"></i></div>
+                    <div class="stat-info">
+                        <p class="stat-label">Best Score</p>
+                        <p class="stat-value" id="statBestScore">0%</p>
+                    </div>
+                </div>
+                <div class="stat-card" style="--d:3">
+                    <div class="stat-icon"><i class="fa-solid fa-fire"></i></div>
+                    <div class="stat-info">
+                        <p class="stat-label">Current Streak</p>
+                        <p class="stat-value" id="statStreak">0 Days</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===================== Choose Category ===================== -->
             <h3>📚 Choose Category</h3>
             <div class="container">
                 <div class="box" data-category="General Knowledge">
                     <p class="emoje">🌍</p>
+                    <i class="fa-solid fa-arrow-right box-arrow"></i>
                     <p>General Knowledge</p>
                     <small>10 Questions</small>
                 </div>
                 <div class="box" data-category="Data Structures">
                     <p class="emoje">🌲</p>
+                    <i class="fa-solid fa-arrow-right box-arrow"></i>
                     <p>Data Structures</p>
                     <small>10 Questions</small>
                 </div>
                 <div class="box" data-category="Python">
                     <p class="emoje">🐍</p>
+                    <i class="fa-solid fa-arrow-right box-arrow"></i>
                     <p>Python</p>
                     <small>10 Questions</small>
                 </div>
                 <div class="box" data-category="HTML">
                     <p class="emoje">💻</p>
+                    <i class="fa-solid fa-arrow-right box-arrow"></i>
                     <p>HTML</p>
                     <small>10 Questions</small>
                 </div>
                 <div class="box" data-category="CSS">
                     <p class="emoje">🎨</p>
+                    <i class="fa-solid fa-arrow-right box-arrow"></i>
                     <p>CSS</p>
                     <small>10 Questions</small>
                 </div>
                 <div class="box" data-category="JavaScript">
                     <p class="emoje">⚡</p>
+                    <i class="fa-solid fa-arrow-right box-arrow"></i>
                     <p>JavaScript</p>
                     <small>10 Questions</small>
                 </div>
             </div>
 
+            <!-- ===================== Difficulty ===================== -->
             <h3 id="h3">🧠 Difficulty</h3>
             <div id="difBtn">
                 <button class="btn" id="easyBtn" data-difflevel="easy">Easy</button>
