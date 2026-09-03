@@ -84,12 +84,24 @@ header p{
 /* header */
 
 .header{
-    display: flex;
-    justify-content: space-between;
+
+    height:95px;
+    position: fixed;
+    top: 0;
+    left: 18vw;
     width: 82vw;
-    background-color: white;
-    padding: 0px 40px 0px 40px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    z-index: 1000; 
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 35px;
+
+    background: rgba(255, 255, 255, 0.488);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom:1px solid #eceef6;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    transition: all .3s ease;
 }
 .trophy-box{
     display: flex;
@@ -183,7 +195,7 @@ header p{
     background-color: white;
     height: 60%;
     border-radius: 20px;
-    margin-top: 40px;
+    margin-top: 130px;
     box-shadow: 0 0 10px rgb(0,0,0,0.1);
     display: flex;
     justify-content: center;

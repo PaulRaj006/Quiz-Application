@@ -171,6 +171,9 @@ header p{
     background:#f2efff;
     border:1px solid #dcd6ff;
 }
+.support:hover{
+    box-shadow:0 6px 18px rgba(80,120,255,.15);
+}
 .support i{
     font-size:15px;
 }
@@ -178,6 +181,9 @@ header p{
     color:#966112;
     background:#fff8e7;
     border:1px solid #f4d58d;
+}
+.response:hover{
+    box-shadow:0 6px 18px rgba(255, 156, 80, 0.15);
 }
 .response i{
     color:#d4a017;
@@ -315,6 +321,18 @@ header p{
     outline: none;
     border: 1px solid #6366F1;
     box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+}
+.error{
+    color:#dc2626;
+    font-size:13px;
+    margin-top:5px;
+    display:block;
+}
+.char-counter{
+    text-align: right;
+    font-size: 13px;
+    color: gray;
+    margin-top: 5px;
 }
 
 .rating-row{ margin-bottom: 20px; }
