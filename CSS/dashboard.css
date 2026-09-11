@@ -253,3 +253,54 @@ header p{
     .stat-grid{ grid-template-columns: repeat(3, 1fr); }
     .chart-grid, .two-col{ grid-template-columns: 1fr; }
 }
+/* ============================================
+   FIXED HEIGHT + INTERNAL SCROLL
+============================================ */
+
+#progressList {
+    height: 430px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+#recentList {
+    height: 300px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+
+/* Scrollbar */
+
+#progressList::-webkit-scrollbar,
+#recentList::-webkit-scrollbar {
+    width: 6px;
+}
+
+#progressList::-webkit-scrollbar-track,
+#recentList::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+#progressList::-webkit-scrollbar-thumb,
+#recentList::-webkit-scrollbar-thumb {
+    background: #c7c7c7;
+    border-radius: 10px;
+}
+
+#progressList::-webkit-scrollbar-thumb:hover,
+#recentList::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+.category-progress-title{
+    margin: 20px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    color: #333;
+}
+
+.category-progress-title:first-child{
+    margin-top: 0;
+}
