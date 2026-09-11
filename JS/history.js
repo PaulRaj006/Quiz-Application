@@ -1,65 +1,104 @@
-// section-box page open
+// =======================================
+//          NAVIGATION
+// =======================================
+
 const leaderboardBtn = document.querySelector(".leaderboard");
 leaderboardBtn.addEventListener("click", () => {
-    console.log("Leaderboard clicked");
     window.location.href = "leaderboard.html";
 });
 
-const indexBtn = document.querySelector(".home");
-indexBtn.addEventListener("click", () => {
-    console.log("Home clicked");
+const homeBtn = document.querySelector(".home");
+homeBtn.addEventListener("click", () => {
     window.location.href = "home.html";
 });
 
 const historyBtn = document.querySelector(".history");
 historyBtn.addEventListener("click", () => {
-    console.log("history clicked");
     window.location.href = "history.html";
 });
 
 const aboutBtn = document.querySelector(".about");
 aboutBtn.addEventListener("click", () => {
-    console.log("history clicked");
     window.location.href = "about.html";
 });
 
 const contactBtn = document.querySelector(".contact");
 contactBtn.addEventListener("click", () => {
-    console.log("contact clicked");
     window.location.href = "contact.html";
 });
 
 const categoriesBtn = document.querySelector(".categories");
 categoriesBtn.addEventListener("click", () => {
-    console.log("contact clicked");
     window.location.href = "categories.html";
 });
 
 const dashboardBtn = document.querySelector(".dashboard");
 dashboardBtn.addEventListener("click", () => {
-    console.log("dashboard clicked");
     window.location.href = "dashboard.html";
 });
 
 
+// =======================================
+//          CURRENT USER DATA
+// =======================================
 
-let clear = document.querySelector('.clear');
-function popupShow(){
-    overlay.style.display = "flex";
-}
-let overlay=document.querySelector('.overlay');
-function cancelUpdate(){
-    overlay.style.display = "none";
-}
+const currentUser = localStorage.getItem("currentUser");
 
-let historyData = JSON.parse(localStorage.getItem("leaderboard")) || [];
-console.log(historyData);
-let historyBody = document.getElementById('historyBody');
+const allUserData =
+    JSON.parse(localStorage.getItem("userData")) || {};
 
-// displayTable function :
+const user = allUserData[currentUser];
 
-function displayTable(data){
-    if(data.length === 0){
+let historyData = user?.quizHistory || [];
+
+console.log("Current User:", currentUser);
+console.log("History:", historyData);
+
+
+// =======================================
+//          HTML ELEMENTS
+// =======================================
+
+const historyBody = document.getElementById("historyBody");
+
+const searchInput = document.getElementById("input");
+
+const categorySelect =
+    document.getElementById("selectCategories");
+
+const difficultySelect =
+    document.getElementById("selectDifficulties");
+
+const dateInput =
+    document.getElementById("date");
+
+const sortSelect =
+    document.getElementById("selectSort");
+
+
+// Cards
+
+const totalAttempts =
+    document.getElementById("totalAttempts");
+
+const passedQuizzes =
+    document.getElementById("passedQuizzes");
+
+const averageScore =
+    document.getElementById("averageScore");
+
+const highestScore =
+    document.getElementById("highestScore");
+
+
+// =======================================
+//          DISPLAY TABLE
+// =======================================
+
+function displayTable(data) {
+
+    if (data.length === 0) {
+
         historyBody.innerHTML = `
             <tr>
                 <td colspan="8" class="no-data">
@@ -67,22 +106,36 @@ function displayTable(data){
                 </td>
             </tr>
         `;
+
+        return;
     }
-    else{
 
-        historyBody.innerHTML = "";
+    historyBody.innerHTML = "";
 
-        data.forEach((item,index)=>{
-            let color = "red";
+    data.forEach((item, index) => {
 
-        if(item.score >= 80){
-            color = "green";
-        }else if(item.score >= 50){
-            color = "orange";
+        let scoreColor = "red";
+
+        if (item.score >= 80) {
+            scoreColor = "green";
         }
-        // First letter || 1st 2nd letter
-        let initial = item.name.trim().split(" ").map(word => word[0]).join("").substring(0,2).toUpperCase();
-        // Random profile coloiir
+        else if (item.score >= 50) {
+            scoreColor = "orange";
+        }
+
+
+        // Profile Initial
+
+        const initial =
+            currentUser
+                .trim()
+                .split(" ")
+                .map(word => word[0])
+                .join("")
+                .substring(0, 2)
+                .toUpperCase();
+
+
         const profileColors = [
             "#4F46E5",
             "#F59E0B",
@@ -94,172 +147,452 @@ function displayTable(data){
             "#F97316"
         ];
 
-        let profileColor = profileColors[index % profileColors.length];
+        const profileColor =
+            profileColors[index % profileColors.length];
 
 
-            historyBody.innerHTML += `
-                <tr>
-                    <td>${index + 1}</td>
-                    <td>
-                        <div class="player-info">
-                            <div class="profile"
-                                 style="background:${profileColor}">
-                                ${initial}
-                            </div>
-                           <span style="font-weight: bold;font-size: small;">${item.name}</span>
+        historyBody.innerHTML += `
+            <tr>
+
+                <td>${index + 1}</td>
+
+                <td>
+                    <div class="player-info">
+
+                        <div class="profile"
+                             style="background:${profileColor}">
+                            ${initial}
                         </div>
-                    </td>
-                    <td>
-                        <span class="category-badge ${item.category.replace(/\s+/g,'')}">
-                            ${item.category}
-                       </span>
-                    </td>
 
-                    <td>
-                        <span class="difficulty-badge ${item.difficulty.toLowerCase()}">
-                            ${item.difficulty}
+                        <span style="font-weight:bold;font-size:small;">
+                            ${currentUser}
                         </span>
-                    </td>
-                    <td style="color:${color};font-weight:bold">
-                        ${item.score}%
-                    </td>
-                    <td>${item.score * 1000}</td>
-                    <td>${item.date}</td>
-                    <td>${item.time}</td>
-                </tr>
-            `;
-        });
+
+                    </div>
+                </td>
+
+
+                <td>
+                    <span class="category-badge ${item.category.replace(/\s+/g, '')}">
+                        ${item.category}
+                    </span>
+                </td>
+
+
+                <td>
+                    <span class="difficulty-badge ${item.difficulty.toLowerCase()}">
+                        ${item.difficulty}
+                    </span>
+                </td>
+
+
+                <td style="color:${scoreColor};font-weight:bold;">
+                    ${item.score}%
+                </td>
+
+
+                <td>
+                    ${item.score * 1000}
+                </td>
+
+
+                <td>
+                    ${item.date}
+                </td>
+
+
+                <td>
+                    ${item.time}
+                </td>
+
+            </tr>
+        `;
+    });
+}
+
+
+// =======================================
+//          DATE + TIME PARSER
+// =======================================
+
+function parseDateTime(item) {
+
+    const [day, month, year] =
+        item.date.split("/");
+
+    const [time, period] =
+        item.time.split(" ");
+
+    let [hour, minute] =
+        time.split(":").map(Number);
+
+
+    if (period?.toLowerCase() === "pm" && hour !== 12) {
+        hour += 12;
     }
-    console.log(historyData);
+
+    if (period?.toLowerCase() === "am" && hour === 12) {
+        hour = 0;
+    }
+
+
+    return new Date(
+        year,
+        month - 1,
+        day,
+        hour,
+        minute
+    );
 }
 
 
-// serch fields
-let searchInput = document.getElementById("input");
-searchInput.addEventListener("input", filterData);
+// =======================================
+//          FILTER + SORT
+// =======================================
 
-// Initial category,difficulty :
-let categorySelect = document.getElementById("selectCategories");
-let difficultySelect = document.getElementById("selectDifficulties");
+function filterData() {
 
+    const search =
+        searchInput.value.trim().toLowerCase();
 
-//add Event Listeners (Appo search type pannalum filter nadakkum, category change pannalum filter nadakkum)
-categorySelect.addEventListener("change", filterData);
-difficultySelect.addEventListener("change", filterData);
+    const category =
+        categorySelect.value;
 
-//Date Filter
-let dateInput = document.getElementById("date");
-dateInput.addEventListener("change", filterData);
+    const difficulty =
+        difficultySelect.value;
 
-function parseDateTime(item){
-    let [day, month, year] = item.date.split("/");
-    let [time, period] = item.time.split(" ");
-    let [hour, minute] = time.split(":").map(Number);
+    const selectedDate =
+        dateInput.value;
 
-    if(period.toLowerCase() === "pm" && hour !== 12) hour += 12;
-    if(period.toLowerCase() === "am" && hour === 12) hour = 0;
+    const sort =
+        sortSelect.value;
 
-    return new Date(year, month - 1, day, hour, minute);
-}
-
-//Select sort-list
-let sortSelect = document.getElementById("selectSort");
-sortSelect.addEventListener("change", filterData);
-
-
-function filterData(){
-    console.log("Filter Running");
-
-    let search = searchInput.value.trim().toLowerCase();
-    let category = categorySelect.value;
-    let difficulty = difficultySelect.value;
-    let date = dateInput.value;
-    let sort = sortSelect.value;
 
     let filtered = historyData.filter(item => {
 
-        let searchMatch =
-            item.name.toLowerCase().includes(search);
+        // Search
 
-        let categoryMatch =
+        const searchMatch =
+            currentUser.toLowerCase().includes(search);
+
+
+        // Category
+
+        const categoryMatch =
             category === "" ||
             item.category === category;
 
-        let difficultyMatch =
+
+        // Difficulty
+
+        const difficultyMatch =
             difficulty === "" ||
             item.difficulty.toLowerCase() === difficulty;
 
+
+        // Date
+
         let dateMatch = true;
-        if (date !== "") {
-            let [day, month, year] = item.date.split("/");
-            let formattedDate = `${year}-${month}-${day}`;
-            dateMatch = formattedDate === date;
+
+        if (selectedDate !== "") {
+
+            const [day, month, year] =
+                item.date.split("/");
+
+            const formattedDate =
+                `${year}-${month}-${day}`;
+
+            dateMatch =
+                formattedDate === selectedDate;
         }
-        return searchMatch &&
-               categoryMatch &&
-               difficultyMatch &&
-               dateMatch;
+
+
+        return (
+            searchMatch &&
+            categoryMatch &&
+            difficultyMatch &&
+            dateMatch
+        );
     });
 
-    // Sorting
+
+    // ===================================
+    // SORTING
+    // ===================================
+
     if (sort === "latest") {
-        filtered.sort((a, b) => parseDateTime(b) - parseDateTime(a));
+
+        filtered.sort(
+            (a, b) =>
+                parseDateTime(b) -
+                parseDateTime(a)
+        );
     }
+
     else if (sort === "oldest") {
-        filtered.sort((a, b) => parseDateTime(a) - parseDateTime(b));
+
+        filtered.sort(
+            (a, b) =>
+                parseDateTime(a) -
+                parseDateTime(b)
+        );
     }
+
     else if (sort === "highest") {
-        filtered.sort((a, b) => b.score - a.score);
+
+        filtered.sort(
+            (a, b) =>
+                Number(b.score) -
+                Number(a.score)
+        );
     }
+
     else if (sort === "lowest") {
-        filtered.sort((a, b) => a.score - b.score);
+
+        filtered.sort(
+            (a, b) =>
+                Number(a.score) -
+                Number(b.score)
+        );
     }
+
+
     displayTable(filtered);
+
     updateCards(filtered);
-    
 }
 
-let totalAttempts = document.getElementById("totalAttempts");
-let totalPlayers = document.getElementById("totalPlayers");
-let averageScore = document.getElementById("averageScore");
-let highestScore = document.getElementById("highestScore");
 
-function updateCards(data){
-    totalAttempts.textContent = data.length;
+// =======================================
+//          UPDATE TOP CARDS
+// =======================================
 
-    let uniquePlayers = new Set(data.map(item => item.name));
-    totalPlayers.textContent = uniquePlayers.size;
+function updateCards(data) {
 
-    if(data.length === 0){
+    // Total Attempts
+
+    totalAttempts.textContent =
+        data.length;
+
+
+    // Passed Quizzes
+
+    const passed =
+        data.filter(item =>
+            Number(item.score) >= 60
+        ).length;
+
+    passedQuizzes.textContent =
+        passed;
+
+
+    // No data
+
+    if (data.length === 0) {
+
         averageScore.textContent = "0%";
         highestScore.textContent = "0%";
+
         return;
     }
-    
-    let total = data.reduce((sum,item)=>sum + item.score,0);
+
+
+    // Average Score
+
+    const total =
+        data.reduce(
+            (sum, item) =>
+                sum + Number(item.score),
+            0
+        );
+
     averageScore.textContent =
         (total / data.length).toFixed(1) + "%";
+
+
+    // Highest Score
+
     highestScore.textContent =
-        Math.max(...data.map(item=>item.score)) + "%";
+        Math.max(
+            ...data.map(item =>
+                Number(item.score)
+            )
+        ) + "%";
 }
-//Export CSV download
-let exportBtn = document.getElementById("exportBtn");
-exportBtn.addEventListener("click", exportCSV);
-function exportCSV(){
-    if(historyData.length === 0){
-        alert("No history available!");
+
+
+// =======================================
+//          CLEAR HISTORY POPUP
+// =======================================
+
+const overlay =
+    document.querySelector(".overlay");
+
+
+function popupShow() {
+
+    overlay.style.display = "flex";
+}
+
+
+function cancelUpdate() {
+
+    overlay.style.display = "none";
+}
+
+
+function deleteUpdate() {
+
+    if (!user) {
+        overlay.style.display = "none";
         return;
     }
-    let csv = "Name,Category,Difficulty,Score,Points,Date,Time\n";
-    historyData.forEach(item=>{
-        csv += `"${item.name}","${item.category}","${item.difficulty}","${item.score}%","${item.score * 1000}","${item.date}","${item.time}"\n`;    });
-    let blob = new Blob([csv],{type:"text/csv"});
-    let url = URL.createObjectURL(blob);
-    let a = document.createElement("a");
+
+
+    const confirmed =
+        window.confirm(
+            "Are you sure you want to delete your quiz history?"
+        );
+
+
+    if (!confirmed) {
+        return;
+    }
+
+
+    // Clear current user's history
+
+    user.quizHistory = [];
+
+    user.questionsAttempted = 0;
+    user.quizzesCompleted = 0;
+    user.bestScore = 0;
+    user.currentStreak = 0;
+
+
+    // Save updated data
+
+    allUserData[currentUser] = user;
+
+    localStorage.setItem(
+        "userData",
+        JSON.stringify(allUserData)
+    );
+
+
+    // Update local data
+
+    historyData = [];
+
+
+    overlay.style.display = "none";
+
+
+    // Refresh page
+
+    filterData();
+}
+
+
+// =======================================
+//          EXPORT CSV
+// =======================================
+
+const exportBtn =
+    document.getElementById("exportBtn");
+
+
+exportBtn.addEventListener(
+    "click",
+    exportCSV
+);
+
+
+function exportCSV() {
+
+    if (historyData.length === 0) {
+
+        alert("No history available!");
+
+        return;
+    }
+
+
+    let csv =
+        "Name,Category,Difficulty,Score,Points,Date,Time\n";
+
+
+    historyData.forEach(item => {
+
+        csv +=
+            `"${currentUser}",` +
+            `"${item.category}",` +
+            `"${item.difficulty}",` +
+            `"${item.score}%",` +
+            `"${item.score * 1000}",` +
+            `"${item.date}",` +
+            `"${item.time}"\n`;
+    });
+
+
+    const blob =
+        new Blob(
+            [csv],
+            { type: "text/csv" }
+        );
+
+
+    const url =
+        URL.createObjectURL(blob);
+
+
+    const a =
+        document.createElement("a");
+
     a.href = url;
-    a.download = "Quiz_History.csv";
+
+    a.download =
+        "Quiz_History.csv";
 
     a.click();
+
+
     URL.revokeObjectURL(url);
 }
+
+
+// =======================================
+//          EVENT LISTENERS
+// =======================================
+
+searchInput.addEventListener(
+    "input",
+    filterData
+);
+
+categorySelect.addEventListener(
+    "change",
+    filterData
+);
+
+difficultySelect.addEventListener(
+    "change",
+    filterData
+);
+
+dateInput.addEventListener(
+    "change",
+    filterData
+);
+
+sortSelect.addEventListener(
+    "change",
+    filterData
+);
+
+
+// =======================================
+//          INITIAL LOAD
+// =======================================
+
 filterData();
