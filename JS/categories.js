@@ -63,14 +63,36 @@ let activeFilter = "all";
 
 // ---- Read existing leaderboard history to compute per-category progress ----
 function getHistory(){
-    return JSON.parse(localStorage.getItem("leaderboard")) || [];
+
+    const currentUser =
+        localStorage.getItem("currentUser");
+
+    const userData =
+        JSON.parse(
+            localStorage.getItem("userData")
+        ) || {};
+
+    return userData[currentUser]?.quizHistory || [];
 }
 
 function getCategoryProgress(catName){
-    const history = getHistory().filter(item => item.category === catName);
-    if(history.length === 0) return 0;
-    const best = Math.max(...history.map(item => Number(item.score)));
-    return best; // score already stored as a 0-100 percentage
+    const history =
+        getHistory().filter(
+            item => item.category === catName
+        );
+
+    if(history.length === 0){
+        return 0;
+    }
+    const totalScore =
+        history.reduce(
+            (sum, item) =>
+                sum + Number(item.score || 0),
+            0
+        );
+    return Math.round(
+        totalScore / history.length
+    );
 }
 
 function renderCards(){
@@ -159,7 +181,7 @@ function renderCards(){
                 <div class="progress-label">
                     ${
                         progress > 0
-                        ? `<span>🏆 Best Score</span>
+                        ? `<span>📊 Average Score</span>
                            <span>${progress}%</span>`
                         : `<span>📝 Not Attempted Yet</span>
                            <span>--</span>`
@@ -224,7 +246,6 @@ chips.forEach(chip => {
 
 // ---- Header stat cards: derived entirely from existing categoryMeta / question counts ----
 function renderHeaderStats() {
-    const totalCategories = categoryMeta.length;
 
     const totalQuestions = categoryMeta.reduce((total, cat) => {
         return total +
@@ -237,14 +258,35 @@ function renderHeaderStats() {
         cat.tags.includes("recommended")
     ).length;
 
-    const popularCategory = categoryMeta.find(cat =>
-        cat.tags.includes("popular")
-    )?.name || "—";
+    const mostAttempted = getMostAttemptedCategory();
 
-    document.getElementById("statQuestions").textContent = totalQuestions;
+    document.getElementById("statQuestions").textContent =
+        totalQuestions;
+
     document.getElementById("statRecommended").textContent =
         `${recommendedCount} Categories`;
-    document.getElementById("statPopular").textContent = popularCategory;
+
+    document.getElementById("statPopular").textContent =
+        mostAttempted;
+}
+//most attemp functionn===========
+function getMostAttemptedCategory() {
+    const history = getHistory();
+    if (history.length === 0) {
+        return "—";
+    }
+
+    const counts = {};
+    history.forEach(item => {
+
+        if (!item.category) return;
+
+        counts[item.category] =
+            (counts[item.category] || 0) + 1;
+    });
+
+    return Object.entries(counts)
+        .sort((a, b) => b[1] - a[1])[0]?.[0] || "—";
 }
 
 //Featured Banner -> random category
