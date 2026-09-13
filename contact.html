@@ -211,7 +211,9 @@
                 <p>Estimated response time: within 24 hours</p>
             </div>
             <button id="doneBtn" onclick="cancelPopup()">Done</button>
-            <a id="Send-a-msg" href="">Send Another Message</a>
+            <a id="Send-a-msg" href="#" onclick="cancelPopup(); return false;">
+                Send Another Message
+            </a>
             <div class="cancelBtn" onclick="cancelPopup()">
                 <i class="fa-solid fa-xmark"></i>
             </div>

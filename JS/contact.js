@@ -64,9 +64,7 @@ const loader = document.querySelector(".loader");
 // initialize text area count 
 const messageBox = document.getElementById("cMessage");
 const charCount = document.getElementById("charCount");
-messageBox.addEventListener("input", () => {
-    charCount.textContent = messageBox.value.length;
-});
+
 messageBox.addEventListener("input", () => {
     const count = messageBox.value.length;
     charCount.textContent = count;
